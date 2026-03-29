@@ -49,4 +49,8 @@ body {
   .section-grid {
     @apply grid gap-5 md:grid-cols-2;
   }
+
+  .interactive-lift {
+    @apply transition-transform duration-300 ease-out motion-safe:hover:-translate-y-1;
+  }
 }
