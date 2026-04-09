@@ -4,7 +4,7 @@ import { SectionWrapper } from "@/components/section-wrapper";
 
 const contactLinks = [
   { label: "Email", value: "hello@example.com", href: "mailto:hello@example.com" },
-  { label: "GitHub", value: "github.com/ezra", href: "https://github.com/ezra" },
+  { label: "GitHub", value: "github.com/ezraweng21", href: "https://github.com/ezraweng21" },
   { label: "Resume", value: "Resume link placeholder", href: "#" },
 ];
 
@@ -12,20 +12,32 @@ export default function ContactPage() {
   return (
     <SectionWrapper
       eyebrow="Contact"
-      title="Open the door for opportunities and conversation."
-      description="This page is intentionally direct: clear ways to reach out now, with room to add form handling or richer contact flows later."
+      title="A simple place to reach out."
+      description="This page should stay direct and easy to use. It does not need much, just a clean way to contact you and find the most important links."
     >
-      <div className="grid gap-4 md:grid-cols-3">
+      <div className="grid gap-4">
         {contactLinks.map((link) => (
           <Link
             key={link.label}
             href={link.href}
-            className="rounded-[24px] border border-ink/10 bg-white/80 p-6 hover:border-clay/40 hover:bg-white"
+            className="flex items-start justify-between gap-4 border-t border-[#c56f3b] py-4 hover:text-[#b85f2c]"
           >
-            <p className="eyebrow">{link.label}</p>
-            <p className="mt-4 text-lg font-semibold text-ink">{link.value}</p>
+            <div>
+              <p className="eyebrow">{link.label}</p>
+              <p className="mt-2 text-sm font-semibold text-ink sm:text-base">{link.value}</p>
+            </div>
+            <span className="text-xs font-semibold uppercase tracking-[0.16em] text-[#8f5b39]">
+              Open
+            </span>
           </Link>
         ))}
+      </div>
+
+      <div className="mt-10 border-t border-[#dec3ae] pt-4">
+        <p className="text-sm leading-6 text-ink/70">
+          If a form or a more specific contact flow makes sense later, it can be
+          added without changing the overall tone of this page.
+        </p>
       </div>
     </SectionWrapper>
   );
