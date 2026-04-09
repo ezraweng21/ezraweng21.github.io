@@ -24,24 +24,24 @@ export default function ActivitiesPage() {
     >
       <div className="grid gap-6 lg:grid-cols-3">
         {activities.map((item) => (
-          <article key={item.title} className="border-t border-[#c56f3b] pt-4">
+          <article key={item.title} className="page-rule border-[#c56f3b]">
             <p className="eyebrow">Category</p>
             <h3 className="mt-2 text-lg text-ink">{item.title}</h3>
-            <p className="mt-3 text-sm leading-6 text-ink/70">{item.text}</p>
+            <p className="page-copy mt-3">{item.text}</p>
           </article>
         ))}
       </div>
 
-      <div className="mt-10 grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
+      <div className="page-split mt-10">
         <div>
           <p className="eyebrow">Why It Matters</p>
-          <p className="mt-3 max-w-2xl text-sm leading-6 text-ink/70 sm:text-base sm:leading-7">
+          <p className="page-copy mt-3 max-w-2xl">
             This page should feel organized and credible without turning into a
             plain list of extracurricular lines. It can eventually give context
             to the work that shaped you outside formal project outputs.
           </p>
         </div>
-        <div className="border-t border-[#dec3ae] pt-4 text-sm leading-6 text-ink/72">
+        <div className="page-rule">
           <p>Future entries can be grouped by organization, role, or type of work depending on what reads most clearly once the real content is ready.</p>
         </div>
       </div>

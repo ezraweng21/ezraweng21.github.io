@@ -15,12 +15,12 @@ export default function ContactPage() {
       title="A simple place to reach out."
       description="This page should stay direct and easy to use. It does not need much, just a clean way to contact you and find the most important links."
     >
-      <div className="grid gap-4">
+      <div className="page-list">
         {contactLinks.map((link) => (
           <Link
             key={link.label}
             href={link.href}
-            className="flex items-start justify-between gap-4 border-t border-[#c56f3b] py-4 hover:text-[#b85f2c]"
+            className="page-list-item flex items-start justify-between gap-4 hover:text-[#b85f2c]"
           >
             <div>
               <p className="eyebrow">{link.label}</p>
@@ -33,8 +33,8 @@ export default function ContactPage() {
         ))}
       </div>
 
-      <div className="mt-10 border-t border-[#dec3ae] pt-4">
-        <p className="text-sm leading-6 text-ink/70">
+      <div className="page-rule mt-10">
+        <p className="page-copy">
           If a form or a more specific contact flow makes sense later, it can be
           added without changing the overall tone of this page.
         </p>

@@ -53,6 +53,27 @@ body {
     font-weight: 500;
   }
 
+  .page-copy {
+    @apply text-sm leading-6 sm:text-[0.96rem] sm:leading-7;
+    color: rgb(17 24 39 / 0.72);
+  }
+
+  .page-rule {
+    @apply border-t border-[#dec3ae] pt-4;
+  }
+
+  .page-list {
+    @apply border-t border-[#dec3ae];
+  }
+
+  .page-list-item {
+    @apply border-b border-[#ead5c7] py-4 last:border-b-0;
+  }
+
+  .page-split {
+    @apply grid gap-8 lg:grid-cols-[1.1fr_0.9fr];
+  }
+
   .section-grid {
     @apply grid gap-5 md:grid-cols-2;
   }

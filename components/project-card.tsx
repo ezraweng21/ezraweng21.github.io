@@ -14,7 +14,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
     >
       <p className="eyebrow">{project.category}</p>
       <h3 className="mt-2 text-base text-ink sm:text-lg">{project.title}</h3>
-      <p className="mt-3 text-sm leading-6 text-ink/70">{project.shortSummary}</p>
+      <p className="page-copy mt-3">{project.shortSummary}</p>
       <div className="mt-4 flex flex-wrap gap-2 text-xs uppercase tracking-[0.14em] text-[#8f5b39]">
         <span>{project.timeframe}</span>
         <span>{project.status}</span>

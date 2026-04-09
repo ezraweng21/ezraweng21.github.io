@@ -26,13 +26,13 @@ export default async function ProjectDetailPage({
   }
 
   return (
-    <section className="py-6 sm:py-8">
-      <div className="border-b border-[#dec3ae] pb-6">
+    <section className="py-5 sm:py-7">
+      <div className="border-b border-[#dec3ae] pb-5 sm:pb-6">
         <p className="eyebrow mb-3">{project.category}</p>
-        <h1 className="max-w-3xl text-3xl text-ink sm:text-4xl">{project.title}</h1>
-        <p className="mt-3 max-w-2xl text-sm leading-6 text-ink/70 sm:text-base sm:leading-7">
-          {project.summary}
-        </p>
+        <h1 className="max-w-3xl text-[2rem] leading-tight text-ink sm:text-[2.55rem]">
+          {project.title}
+        </h1>
+        <p className="page-copy mt-3 max-w-2xl">{project.summary}</p>
         <div className="mt-6 flex flex-wrap gap-3">
           <Link href="/projects" className="home-secondary-link">
             Back to Projects
@@ -45,46 +45,47 @@ export default async function ProjectDetailPage({
         </div>
       </div>
 
-      <div className="mt-8 grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
+      <div className="page-split mt-7 sm:mt-8">
         <div>
-          {project.sections.map((section) => (
-            <section key={section.title} className="border-t border-[#dec3ae] py-4 first:border-t-0 first:pt-0">
+          {project.sections.map((section, index) => (
+            <section
+              key={section.title}
+              className={`py-4 ${index === 0 ? "" : "border-t border-[#dec3ae]"}`}
+            >
               <p className="eyebrow">{section.title}</p>
-              <p className="mt-3 max-w-2xl text-sm leading-6 text-ink/70 sm:text-base sm:leading-7">
-                {section.body}
-              </p>
+              <p className="page-copy mt-3 max-w-2xl">{section.body}</p>
             </section>
           ))}
         </div>
 
         <aside className="space-y-6">
-          <section className="border-t border-[#c56f3b] pt-4">
+          <section className="page-rule border-[#c56f3b]">
             <p className="eyebrow">Role</p>
-            <p className="mt-2 text-sm leading-6 text-ink/72">{project.role}</p>
+            <p className="page-copy mt-2">{project.role}</p>
           </section>
 
-          <section className="border-t border-[#c56f3b] pt-4">
+          <section className="page-rule border-[#c56f3b]">
             <p className="eyebrow">Stack</p>
-            <ul className="mt-2 space-y-2 text-sm leading-6 text-ink/72">
+            <ul className="page-copy mt-2 space-y-2">
               {project.stack.map((item) => (
                 <li key={item}>{item}</li>
               ))}
             </ul>
           </section>
 
-          <section className="border-t border-[#c56f3b] pt-4">
+          <section className="page-rule border-[#c56f3b]">
             <p className="eyebrow">Timeframe</p>
-            <p className="mt-2 text-sm leading-6 text-ink/72">{project.timeframe}</p>
+            <p className="page-copy mt-2">{project.timeframe}</p>
           </section>
 
-          <section className="border-t border-[#c56f3b] pt-4">
+          <section className="page-rule border-[#c56f3b]">
             <p className="eyebrow">Status</p>
-            <p className="mt-2 text-sm leading-6 text-ink/72">{project.status}</p>
+            <p className="page-copy mt-2">{project.status}</p>
           </section>
 
-          <section className="border-t border-[#c56f3b] pt-4">
+          <section className="page-rule border-[#c56f3b]">
             <p className="eyebrow">Notes</p>
-            <ul className="mt-2 space-y-2 text-sm leading-6 text-ink/72">
+            <ul className="page-copy mt-2 space-y-2">
               {project.notes.map((item) => (
                 <li key={item}>{item}</li>
               ))}

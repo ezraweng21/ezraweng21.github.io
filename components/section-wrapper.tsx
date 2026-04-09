@@ -14,15 +14,15 @@ export function SectionWrapper({
   children,
 }: SectionWrapperProps) {
   return (
-    <section className="py-6 sm:py-8">
-      <div className="border-b border-[#dec3ae] pb-6">
+    <section className="py-5 sm:py-7">
+      <div className="border-b border-[#dec3ae] pb-5 sm:pb-6">
         {eyebrow ? <p className="eyebrow mb-3">{eyebrow}</p> : null}
-        <h1 className="max-w-3xl text-3xl text-ink sm:text-4xl">{title}</h1>
-        <p className="mt-3 max-w-2xl text-sm leading-6 text-ink/70 sm:text-base sm:leading-7">
-          {description}
-        </p>
+        <h1 className="max-w-3xl text-[2rem] leading-tight text-ink sm:text-[2.55rem]">
+          {title}
+        </h1>
+        <p className="page-copy mt-3 max-w-2xl">{description}</p>
       </div>
-      <div className="mt-8">{children}</div>
+      <div className="mt-7 sm:mt-8">{children}</div>
     </section>
   );
 }
