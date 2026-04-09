@@ -10,51 +10,54 @@ export type TimelineEntry = {
   notes?: string[];
 };
 
+export const aboutIntro =
+  "Ezra Weng is a high school student working across biology, computer science, and data systems. His work focuses on analyzing complex biological and public-health datasets, especially wastewater and genomic surveillance data, where the main challenge is turning noisy signals into useful structure.";
+
 export const aboutThemes: AboutTheme[] = [
   {
-    title: "Technical work with a human angle",
+    title: "Fields of interest",
     body:
-      "Use this space for the ideas that tie projects together: clarity, curiosity, and work that feels useful to real people.",
+      "Computational biology, infectious disease, public health, civic analytics, and data systems.",
   },
   {
-    title: "Science, systems, and visual thinking",
+    title: "Technical interests",
     body:
-      "This can later connect technical projects with broader interests in research, biology, observation, and the way information is presented.",
+      "Dashboards, data pipelines, visualization, genotype tracking, environmental surveillance data, and tools that make complex datasets easier to inspect.",
   },
   {
-    title: "Growth over polished finality",
+    title: "Current focus",
     body:
-      "The site can hold projects in progress, experiments, and milestones without pretending everything arrives fully finished at once.",
+      "Building tools that connect biological data, computation, and practical decision-making without flattening the science into generic charts.",
   },
 ];
 
 export const aboutTimeline: TimelineEntry[] = [
   {
-    period: "Starting point",
-    title: "Where the curiosity began",
+    period: "2023-present",
+    title: "Building through clubs and competitions",
     body:
-      "A place for the first real thread of interest: the subjects, questions, or experiences that made building and problem solving feel meaningful.",
-    notes: ["Early interests", "First signs of direction"],
+      "Started taking on technical and organizational work through math, computer science, and biology communities: teaching, coordinating events, and competing across multiple disciplines.",
+    notes: ["USACO Gold", "USABO Semifinalist", "AMC/AIME"],
   },
   {
-    period: "Turning point",
-    title: "When technical work started to click",
+    period: "May 2024-present",
+    title: "Scaling student-led operations",
     body:
-      "Use this entry for the phase where classes, clubs, competitions, or personal builds turned curiosity into a more serious practice.",
-    notes: ["Projects became more intentional", "Skills started connecting"],
+      "Co-founded CareForBrains and worked on outreach, chapter operations, podcast production, and sponsor coordination as the organization grew across chapters and volunteers.",
+    notes: ["30 chapters", "800+ volunteers", "Operations systems"],
   },
   {
-    period: "Current focus",
-    title: "What the work looks like now",
+    period: "July 2025-present",
+    title: "Working with real surveillance data",
     body:
-      "This section can describe the mix of technical projects, leadership, and creative interests that currently shape the direction of the site.",
-    notes: ["Technical depth", "Broader identity", "Room for future case studies"],
+      "Joined wastewater surveillance work connected to TEPHI and BCM, analyzing viral abundance, genotype distributions, and longitudinal trends across large genomic datasets.",
+    notes: ["40+ sites", "16 cities", "Genomic surveillance"],
   },
   {
-    period: "Next chapter",
-    title: "What this grows into next",
+    period: "2026",
+    title: "Turning work into reusable systems",
     body:
-      "Reserve this for the near-future direction: deeper project write-ups, richer storytelling, and the kinds of work you want this portfolio to make room for.",
-    notes: ["More detailed case studies", "Expanded personal context"],
+      "Built portfolio and organization websites with reusable structure, dynamic project pages, and clearer content systems for technical work, clubs, and future case studies.",
+    notes: ["Next.js", "React", "Content systems"],
   },
 ];

@@ -50,7 +50,7 @@ export default async function ProjectDetailPage({
           {project.sections.map((section, index) => (
             <section
               key={section.title}
-              className={`py-4 ${index === 0 ? "" : "border-t border-[#dec3ae]"}`}
+              className={`py-4 ${index === 0 ? "pt-0" : "border-t border-[#dec3ae]"}`}
             >
               <p className="eyebrow">{section.title}</p>
               <p className="page-copy mt-3 max-w-2xl">{section.body}</p>
@@ -58,7 +58,7 @@ export default async function ProjectDetailPage({
           ))}
         </div>
 
-        <aside className="space-y-6">
+        <aside className="space-y-5">
           <section className="page-rule border-[#c56f3b]">
             <p className="eyebrow">Role</p>
             <p className="page-copy mt-2">{project.role}</p>
@@ -66,9 +66,11 @@ export default async function ProjectDetailPage({
 
           <section className="page-rule border-[#c56f3b]">
             <p className="eyebrow">Stack</p>
-            <ul className="page-copy mt-2 space-y-2">
+            <ul className="mt-3 flex flex-wrap gap-2">
               {project.stack.map((item) => (
-                <li key={item}>{item}</li>
+                <li key={item} className="page-meta border border-[#dec3ae] px-2 py-1">
+                  {item}
+                </li>
               ))}
             </ul>
           </section>
@@ -85,9 +87,11 @@ export default async function ProjectDetailPage({
 
           <section className="page-rule border-[#c56f3b]">
             <p className="eyebrow">Notes</p>
-            <ul className="page-copy mt-2 space-y-2">
+            <ul className="page-list mt-3">
               {project.notes.map((item) => (
-                <li key={item}>{item}</li>
+                <li key={item} className="page-list-item page-copy">
+                  {item}
+                </li>
               ))}
             </ul>
           </section>

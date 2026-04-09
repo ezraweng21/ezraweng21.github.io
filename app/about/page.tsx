@@ -1,33 +1,25 @@
 import { SectionWrapper } from "@/components/section-wrapper";
 import { TimelineEntry } from "@/components/timeline-entry";
-import { aboutThemes, aboutTimeline } from "@/data/about";
+import { aboutIntro, aboutThemes, aboutTimeline } from "@/data/about";
 
 export default function AboutPage() {
   return (
     <SectionWrapper
       eyebrow="About"
-      title="The story behind the work."
-      description="This page should feel more personal and narrative than resume-like. It is where the work gets a little more context, background, and personality."
+      title="Biology, code, and data systems."
+      description="A little more context for the projects: what I work on, what I keep coming back to, and how the technical pieces connect."
     >
       <div className="page-split">
         <article>
           <p className="eyebrow">Story</p>
           <h2 className="mt-2 text-2xl text-ink sm:text-[2rem]">
-            More context, less resume language.
+            Extracting signal from messy systems.
           </h2>
-          <p className="page-copy mt-4">
-            Use this section for a grounded personal introduction that explains
-            how you think, what you care about, and how technical work fits into
-            the bigger picture.
-          </p>
-          <p className="page-copy mt-4">
-            The layout leaves room for a more detailed narrative later without
-            changing the overall visual rhythm of the site.
-          </p>
+          <p className="page-copy mt-4">{aboutIntro}</p>
         </article>
 
         <aside>
-          <p className="eyebrow">Themes</p>
+          <p className="eyebrow">Interests</p>
           <div className="page-list mt-3">
             {aboutThemes.map((theme) => (
               <div key={theme.title} className="page-list-item">

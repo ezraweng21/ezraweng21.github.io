@@ -2,16 +2,16 @@ import Link from "next/link";
 
 const highlights = [
   {
-    title: "Technical work",
-    text: "Placeholder for featured engineering builds, systems work, and projects that deserve their own deeper pages later.",
+    title: "Computational biology",
+    text: "Wastewater and genomic surveillance work focused on viral abundance, genotype dynamics, and public-health signal.",
   },
   {
-    title: "Personal context",
-    text: "Placeholder for the story, themes, and perspective that make the technical work feel grounded and recognizably yours.",
+    title: "Dashboards and data systems",
+    text: "Projects that move from messy datasets into cleaned workflows, visual interfaces, and interpretable outputs.",
   },
   {
-    title: "Activities and leadership",
-    text: "Placeholder for leadership, competitions, mentoring, and contributions that sit outside a standard project list.",
+    title: "Clubs and competitions",
+    text: "Teaching, organizing, contest infrastructure, and leadership work across biology, computer science, and math.",
   },
 ];
 
@@ -30,12 +30,12 @@ export default function HomePage() {
           <div>
             <p className="eyebrow">Home</p>
             <h1 className="mt-3 max-w-[12ch] text-4xl leading-[1.04] text-ink sm:text-[2.85rem] lg:text-[3.2rem]">
-              A softer front door for the work and the person behind it.
+              Biology, code, and the systems in between.
             </h1>
             <p className="mt-4 max-w-2xl text-sm leading-6 text-ink/72">
-              Short intro placeholder: this homepage should feel warm, personal,
-              and easy to step into, then naturally lead people toward projects,
-              activities, and the rest of the site without trying too hard.
+              I am Ezra Weng, a student building dashboards, data pipelines,
+              and websites around biology, public health, competitions, and
+              student organizations.
             </p>
 
             <div className="mt-6 flex flex-wrap gap-3">
@@ -58,16 +58,16 @@ export default function HomePage() {
             </div>
             <div className="home-image-frame">
               <div>
-                <p className="text-lg text-ink">Image placeholder</p>
+                <p className="text-lg text-ink">Photo placeholder</p>
                 <p className="mt-3 max-w-xs text-sm leading-6 text-ink/70">
-                  A portrait, candid photo, or custom visual can live here once
-                  the first content pass feels right.
+                  A portrait, field photo, or quieter personal visual can live
+                  here once the rest of the content settles.
                 </p>
               </div>
             </div>
             <p className="mt-3 text-sm leading-6 text-ink/70">
-              Keep this front page open and welcoming. Let the deeper pages hold
-              more of the dense technical detail.
+              The homepage stays simple. The deeper pages hold the project
+              notes, activity context, and technical details.
             </p>
           </div>
         </div>
@@ -78,12 +78,13 @@ export default function HomePage() {
           <div>
             <p className="eyebrow">Short Intro</p>
             <h2 className="mt-2 text-2xl text-ink sm:text-[2rem]">
-              A little more personality before the heavier work pages.
+              Technical work with biological context.
             </h2>
             <p className="mt-3 max-w-2xl text-sm leading-6 text-ink/70">
-              This section can eventually explain how you think, what you care
-              about, and how the site is organized without sounding stiff or
-              reading like a compressed resume.
+              A lot of my work starts with messy systems: wastewater sequencing
+              data, city operations datasets, club logistics, or competition
+              infrastructure. I like turning those into something structured
+              enough to inspect, use, and improve.
             </p>
           </div>
 
@@ -109,11 +110,12 @@ export default function HomePage() {
           <div>
             <p className="eyebrow">Featured Highlights</p>
             <h2 className="mt-2 text-2xl text-ink sm:text-[2rem]">
-              A homepage that introduces the person before the portfolio.
+              A small map of the work so far.
             </h2>
             <p className="mt-3 max-w-2xl text-sm leading-6 text-ink/70">
-              These placeholders keep the structure clear while making room for
-              stronger stories, featured work, and a little more personality.
+              The project pages go deeper, but the common thread is systems:
+              biological data, civic data, student organizations, and tools
+              that make complicated work easier to navigate.
             </p>
           </div>
           <Link href="/projects" className="home-inline-link">

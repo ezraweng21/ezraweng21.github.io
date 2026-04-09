@@ -18,7 +18,6 @@ export type ProjectEntry = {
   stack: string[];
   timeframe: string;
   status: string;
-  featured?: boolean;
   notes: string[];
   sections: ProjectSection[];
   links?: ProjectLink[];
@@ -26,160 +25,203 @@ export type ProjectEntry = {
 
 export const projects: ProjectEntry[] = [
   {
-    slug: "portfolio-site",
-    title: "Personal Portfolio Site",
-    category: "Featured Build",
+    slug: "tephi-wastewater-dashboard",
+    title: "Wastewater Viral Surveillance Dashboard",
+    category: "Computational Biology",
     summary:
-      "The portfolio itself is a design and engineering project: a quieter identity-first site with separate pages for work, activities, and future case studies.",
+      "Interactive dashboard for analyzing longitudinal wastewater sequencing data across 40+ sites. The project focuses on viral abundance, genotype dynamics, and extracting usable biological signal from noisy environmental data.",
     shortSummary:
-      "A personal site that balances identity, technical work, and future growth.",
-    role: "Design, frontend, structure",
-    stack: ["Next.js", "TypeScript", "Tailwind CSS"],
-    timeframe: "Current build",
-    status: "In progress",
-    featured: true,
+      "Dashboard work for viral abundance, genotype shifts, and wastewater sequencing data.",
+    role: "Developer + Data Analyst",
+    stack: ["R", "R Markdown", "Shiny", "ggplot2", "dplyr"],
+    timeframe: "2025-present",
+    status: "Ongoing",
     notes: [
-      "Identity-first homepage",
-      "Separate project detail pages",
-      "Built in layers rather than all at once",
+      "Built visualization and aggregation workflows for sequencing-derived wastewater data.",
+      "Worked with 30k+ rows of RPKMF, coverage, genotype, and site-level data.",
+      "Tracked viral abundance and genotype shifts, including norovirus GII.4 to GII.17 dynamics.",
+      "Designed analysis around biological interpretation rather than surface-level charts.",
     ],
     sections: [
       {
-        title: "Overview",
+        title: "Summary",
         body:
-          "This project is the foundation for the rest of the portfolio. It is meant to feel personal first, while still leaving room for a more serious technical work archive behind it.",
+          "This project analyzes sequencing-derived wastewater data across sites and time. The dashboard is built to make viral trends, abundance changes, and genotype shifts easier to inspect.",
+      },
+      {
+        title: "Data Work",
+        body:
+          "The workflow includes aggregation, normalization, and visualization for RPKMF, coverage, genotype, and site-level data. The core challenge is separating biological signal from noisy environmental measurements.",
+      },
+      {
+        title: "Technical Focus",
+        body:
+          "The interface is designed around public-health interpretation: how viruses change over time, how genotypes move across samples, and where the data suggests meaningful shifts.",
+      },
+    ],
+    links: [{ label: "Repo", href: "https://github.com/ezraweng21/TEPHI" }],
+  },
+  {
+    slug: "municipal-operational-surveillance-dashboard",
+    title: "Municipal Operational Surveillance Dashboard",
+    category: "Civic Data",
+    summary:
+      "End-to-end municipal data dashboard built from raw public datasets through cleaning, transformation, and visualization. The project models operational strain across city systems using public safety and service data.",
+    shortSummary:
+      "Datathon-winning dashboard for municipal service data and operational strain analysis.",
+    role: "Developer",
+    stack: ["Data pipelines", "Visualization", "Dashboard development"],
+    timeframe: "February 2026-present",
+    status: "Ongoing",
+    notes: [
+      "Won the City of Sugar Land Datathon.",
+      "Built a pipeline from raw public datasets to cleaned, analysis-ready outputs.",
+      "Developed an Urban Strain Index to quantify operational stress.",
+      "Focused on decision support, resource allocation, and interpretable civic data.",
+    ],
+    sections: [
+      {
+        title: "Summary",
+        body:
+          "The project turns public municipal datasets into a clearer view of city operations. It connects data cleaning, transformation, and visualization into one decision-support workflow.",
+      },
+      {
+        title: "System Design",
+        body:
+          "The dashboard moves from raw public records into processed indicators, then into visual views for public safety and municipal service patterns.",
+      },
+      {
+        title: "Index Work",
+        body:
+          "A custom Urban Strain Index was designed to summarize operational stress and make comparisons easier across services, locations, or time periods.",
+      },
+    ],
+  },
+  {
+    slug: "portfolio-site",
+    title: "Personal Portfolio Website",
+    category: "Personal Site",
+    summary:
+      "Custom personal portfolio built to organize projects, activities, and technical work without collapsing everything into one page. The site uses reusable content structures and dynamic project pages so it can grow over time.",
+    shortSummary:
+      "A personal site with reusable content data, dynamic project routes, and a quieter visual system.",
+    role: "Frontend architecture + design",
+    stack: ["Next.js", "TypeScript", "Tailwind CSS"],
+    timeframe: "2026",
+    status: "Ongoing",
+    notes: [
+      "Built reusable project data and dynamic detail pages.",
+      "Designed a multi-page structure for projects, activities, about, and contact content.",
+      "Prioritized maintainability, responsive layout, and a less generic portfolio format.",
+      "Created the site as both a portfolio and an evolving technical project.",
+    ],
+    sections: [
+      {
+        title: "Summary",
+        body:
+          "The portfolio is built as a structured personal site rather than a single-page project dump. It separates identity, projects, activities, and contact so each part has room to develop.",
+      },
+      {
+        title: "Architecture",
+        body:
+          "Projects are stored in reusable data and rendered into both a gallery page and generated detail pages. This keeps the content easy to expand without rewriting the page structure.",
       },
       {
         title: "Design Direction",
         body:
-          "The goal is to avoid a generic portfolio look and instead build a site that feels a little warmer, more human, and easier to grow over time.",
-      },
-      {
-        title: "Next Steps",
-        body:
-          "Later versions can add richer project stories, a more developed About page, and one or two carefully chosen interactions once the structure and content feel stable.",
+          "The visual system favors warmer colors, smaller text, and simple section rules over heavy cards or generic portfolio effects.",
       },
     ],
-    links: [{ label: "Live Site", href: "/" }],
+    links: [
+      { label: "Repo", href: "https://github.com/ezraweng21/ezraweng21.github.io" },
+      { label: "Live", href: "https://ezraweng21-github-io.vercel.app" },
+    ],
   },
   {
     slug: "biology-club-site",
-    title: "Biology Club Website",
+    title: "Clements Biology Club Website",
     category: "Organization Site",
     summary:
-      "A site direction centered on clarity, organization, and a friendlier structure for presenting club information, events, and identity.",
+      "Multi-page club website for organizing officers, events, resources, and member logistics. The site supports a larger student organization while keeping updates centralized and manageable.",
     shortSummary:
-      "A clearer club site with a calmer structure and stronger thematic identity.",
-    role: "Frontend structure and styling",
+      "A multi-page club site for officers, events, resources, and student logistics.",
+    role: "Lead Developer",
     stack: ["React", "Vite", "CSS"],
-    timeframe: "Recent project",
-    status: "Ongoing reference point",
+    timeframe: "2026",
+    status: "Active",
     notes: [
-      "Strong thematic design language",
-      "Clear section rhythm",
-      "Useful reference for warmth and readability",
+      "Built a site structure for 50-100+ students.",
+      "Created pages for officers, events, resources, and club information.",
+      "Integrated real logistics such as Discord, forms, and event workflows.",
+      "Designed the site so content can be updated without rebuilding the structure.",
     ],
     sections: [
       {
-        title: "Purpose",
+        title: "Summary",
         body:
-          "This project shows how a site can feel more grounded and coherent when the layout, tone, and content hierarchy all point in the same direction.",
+          "The site centralizes Biology Club information into a multi-page structure for members, officers, and event logistics.",
       },
       {
-        title: "What It Contributes",
+        title: "Content System",
         body:
-          "It is a useful reference for how to make a site feel structured and welcoming without relying on generic product-page patterns.",
+          "The page structure supports officers, events, resources, forms, and Discord links without making the site hard to update.",
+      },
+      {
+        title: "Design Role",
+        body:
+          "The project became a reference point for this portfolio's warmer and clearer design direction because it felt more natural than a generic portfolio layout.",
+      },
+    ],
+    links: [
+      {
+        label: "Repo",
+        href: "https://github.com/ezraweng21/clementsbiologyclub-website",
       },
     ],
   },
   {
     slug: "cs-club-site",
-    title: "Computer Science Club Website",
+    title: "Clements Computer Science Club Website",
     category: "Organization Site",
     summary:
-      "A more systems-oriented club site that leans into technical identity, reusable structure, and a clearer information architecture.",
+      "Computer Science Club website adapted from the Biology Club architecture into a more technical club identity. The project focuses on maintainable structure, reusable layouts, and clearer organization for club content.",
     shortSummary:
-      "A club site with a stronger technical tone and reusable content structure.",
-    role: "Frontend structure and visual system",
-    stack: ["React", "Vite", "CSS"],
-    timeframe: "Recent project",
-    status: "In progress",
+      "A reusable club-site structure adapted for computer science events and resources.",
+    role: "Developer",
+    stack: ["React", "Vite"],
+    timeframe: "2026",
+    status: "Ongoing",
     notes: [
-      "Reusable content modules",
-      "Technical visual direction",
-      "Multi-page information architecture",
+      "Reused and adapted an existing club-site architecture.",
+      "Reworked branding and content for a computer science audience.",
+      "Focused on scalability across pages, events, and resources.",
+      "Preserved maintainable structure while changing the visual and content direction.",
     ],
     sections: [
       {
-        title: "Overview",
+        title: "Summary",
         body:
-          "This project helps demonstrate another side of front-end work: more technical visual language, stronger emphasis on structure, and clearer information scaffolding.",
+          "The CS Club site adapts a working club-site structure into a more technical context for events, resources, and competition information.",
       },
       {
-        title: "Future Detail",
+        title: "Reuse",
         body:
-          "A fuller case study could later compare what worked well on this site versus the warmer approach taken on other projects.",
+          "The project tests how much of an existing architecture can be reused while changing the visual language, content model, and audience.",
+      },
+      {
+        title: "Technical Direction",
+        body:
+          "The site is organized around maintainability: clear page structure, reusable components, and room for future club content.",
       },
     ],
-  },
-  {
-    slug: "dashboard-work",
-    title: "Dashboard and Data Tools",
-    category: "Tooling",
-    summary:
-      "A placeholder slot for interface-heavy tools, dashboards, and data projects that prioritize clarity and usefulness over presentation alone.",
-    shortSummary:
-      "A place for practical interface work and data-heavy tooling.",
-    role: "Placeholder role",
-    stack: ["Placeholder stack"],
-    timeframe: "Future entry",
-    status: "Placeholder",
-    notes: [
-      "Useful internal tools",
-      "Analytics or reporting flows",
-      "Data-driven interfaces",
-    ],
-    sections: [
+    links: [
       {
-        title: "What Belongs Here",
-        body:
-          "This entry is reserved for projects that are more operational or analytical in nature and may not fit the same mold as a more public-facing site or polished app.",
-      },
-    ],
-  },
-  {
-    slug: "future-case-study",
-    title: "Future Case Study",
-    category: "Placeholder",
-    summary:
-      "A flexible placeholder for the kind of deeper project write-up that can eventually include context, process, tradeoffs, and outcome.",
-    shortSummary:
-      "A placeholder for a fuller future project story.",
-    role: "Placeholder role",
-    stack: ["Placeholder stack"],
-    timeframe: "Future entry",
-    status: "Placeholder",
-    notes: [
-      "Longer narrative format",
-      "Room for process and reflection",
-      "Expandable detail layout",
-    ],
-    sections: [
-      {
-        title: "Why It Exists",
-        body:
-          "This project slot is less about the specific work and more about reserving a format for future case studies that deserve more space than a compact card.",
+        label: "Repo",
+        href: "https://github.com/ezraweng21/clementscsclub-website",
       },
     ],
   },
 ];
-
-export const featuredProject =
-  projects.find((project) => project.featured) ?? projects[0];
-
-export const projectGallery = projects.filter(
-  (project) => project.slug !== featuredProject.slug,
-);
 
 export function getProjectBySlug(slug: string) {
   return projects.find((project) => project.slug === slug);

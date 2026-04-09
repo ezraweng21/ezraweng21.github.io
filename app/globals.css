@@ -62,6 +62,10 @@ body {
     @apply border-t border-[#dec3ae] pt-4;
   }
 
+  .page-rule-strong {
+    @apply border-t border-[#c56f3b] pt-4;
+  }
+
   .page-list {
     @apply border-t border-[#dec3ae];
   }
@@ -72,6 +76,30 @@ body {
 
   .page-split {
     @apply grid gap-8 lg:grid-cols-[1.1fr_0.9fr];
+  }
+
+  .page-meta {
+    @apply text-xs font-semibold uppercase tracking-[0.14em] text-[#8f5b39];
+  }
+
+  .page-mini-grid {
+    @apply grid gap-4 sm:grid-cols-2 lg:grid-cols-3;
+  }
+
+  .project-card {
+    @apply flex h-full flex-col border border-[#d8b6a0] bg-[#fffaf6] p-4 transition-colors duration-200 hover:border-[#c56f3b];
+  }
+
+  .project-card-section {
+    @apply border-t border-[#ead5c7] pt-3;
+  }
+
+  .project-card-chip {
+    @apply border border-[#dec3ae] bg-[#fffdf9] px-2 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-[#8f5b39];
+  }
+
+  .project-card-grid {
+    @apply grid gap-3 sm:grid-cols-2;
   }
 
   .section-grid {
