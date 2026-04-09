@@ -96,6 +96,10 @@ export const projects: ProjectEntry[] = [
           "A custom Urban Strain Index was designed to summarize operational stress and make comparisons easier across services, locations, or time periods.",
       },
     ],
+    links: [
+      { label: "Repo", href: "https://github.com/mat-the-doubleu/sugarlanddatathon" },
+      { label: "Live", href: "https://matthewchen3241.shinyapps.io/dataday/" },
+    ],
   },
   {
     slug: "portfolio-site",
@@ -134,7 +138,7 @@ export const projects: ProjectEntry[] = [
     ],
     links: [
       { label: "Repo", href: "https://github.com/ezraweng21/ezraweng21.github.io" },
-      { label: "Live", href: "https://ezraweng21-github-io.vercel.app" },
+      { label: "Live", href: "https://ezraweng21.vercel.app/" },
     ],
   },
   {
@@ -177,6 +181,10 @@ export const projects: ProjectEntry[] = [
         label: "Repo",
         href: "https://github.com/ezraweng21/clementsbiologyclub-website",
       },
+      {
+        label: "Live",
+        href: "https://clementsbiologyclub.vercel.app/",
+      },
     ],
   },
   {
@@ -218,6 +226,10 @@ export const projects: ProjectEntry[] = [
       {
         label: "Repo",
         href: "https://github.com/ezraweng21/clementscsclub-website",
+      },
+      {
+        label: "Live",
+        href: "https://clementscsclub.vercel.app/",
       },
     ],
   },

@@ -13,6 +13,16 @@ const contactLinks = [
     value: "github.com/ezraweng21",
     href: "https://github.com/ezraweng21",
   },
+  {
+    label: "LinkedIn",
+    value: "linkedin.com/in/ezra-weng-927133310",
+    href: "https://www.linkedin.com/in/ezra-weng-927133310",
+  },
+  {
+    label: "iNaturalist",
+    value: "inaturalist.org/people/ezraweng21",
+    href: "https://www.inaturalist.org/people/ezraweng21",
+  },
   { label: "Resume", value: "Resume placeholder", href: "#" },
 ];
 
@@ -45,8 +55,9 @@ export default function ContactPage() {
 
       <div className="page-rule mt-10">
         <p className="page-copy">
-          LinkedIn and a resume PDF can be added here later once those links are
-          ready. For now, email and GitHub are the most useful places to start.
+          A resume link can be added later without changing the page structure.
+          For now, the public links point to the places that already hold the
+          work.
         </p>
       </div>
     </SectionWrapper>
