@@ -10,27 +10,22 @@ const navigation = [
 
 export function SiteNavbar() {
   return (
-    <header className="sticky top-0 z-40">
-      <div className="mx-auto flex max-w-content px-4 pt-4 sm:px-6 lg:px-8">
-        <div className="panel flex w-full flex-col gap-4 px-5 py-4 md:flex-row md:items-center md:justify-between">
+    <header className="border-b border-[#d5b59b] bg-[#eee0d2] text-[#5f4230]">
+      <div className="mx-auto flex max-w-content px-4 sm:px-6 lg:px-8">
+        <div className="flex w-full flex-col gap-3 py-3 md:flex-row md:items-center md:justify-between">
           <Link href="/" className="flex items-center gap-3">
-            <span className="flex h-10 w-10 items-center justify-center rounded-full bg-ink text-sm font-semibold text-white">
-              E
+            <span className="flex h-9 w-9 items-center justify-center rounded-full border border-[#c9956f] text-sm font-medium italic text-[#a55e31]">
+              e
             </span>
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-pine">
-                Ezra
-              </p>
-              <p className="text-sm text-ink/70">Builder, engineer, teammate.</p>
-            </div>
+            <p className="brand-wordmark text-[1.1rem] text-[#6d4530]">Ezra Weng</p>
           </Link>
 
-          <nav className="flex flex-wrap gap-2 text-sm font-medium text-ink/75">
+          <nav className="flex flex-wrap gap-1 text-xs font-medium uppercase tracking-[0.16em] text-[#6d4530]/82">
             {navigation.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="rounded-full px-4 py-2 hover:bg-ink hover:text-white"
+                className="px-3 py-1.5 hover:text-[#a55e31]"
               >
                 {item.label}
               </Link>
