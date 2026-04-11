@@ -142,6 +142,14 @@ body {
     min-height: 9rem;
   }
 
+  .project-special-block {
+    @apply border-t border-[#dec3ae] py-5;
+  }
+
+  .project-special-header {
+    @apply max-w-3xl;
+  }
+
   .project-motif-shell-wastewater .project-motif-visual {
     background: linear-gradient(180deg, #f4ede2 0%, #e3d4c1 100%);
   }
@@ -203,6 +211,46 @@ body {
 
   .wastewater-readout span {
     @apply border border-[#b7b29f] px-2 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-[#6a655d];
+  }
+
+  .wastewater-stage-list {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .wastewater-stage {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1rem;
+    align-items: start;
+    border: 1px solid #d6c4b5;
+    background: #fffaf6;
+    padding: 1rem;
+  }
+
+  .wastewater-stage span {
+    border: 1px solid #9aa79d;
+    padding: 0.45rem 0.6rem;
+    color: #637267;
+  }
+
+  .monitoring-panel-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .monitoring-panel {
+    min-height: 10rem;
+    border: 1px solid #d8b6a0;
+    background:
+      linear-gradient(180deg, rgba(255, 252, 247, 0.98) 0%, rgba(236, 229, 220, 0.85) 100%);
+    padding: 1rem;
+  }
+
+  .monitoring-panel-wide {
+    grid-column: 1 / -1;
+    min-height: 11.5rem;
   }
 
   .civic-grid {
@@ -326,6 +374,171 @@ body {
       linear-gradient(180deg, rgba(219, 206, 181, 0.52) 0%, rgba(255, 252, 246, 0.92) 100%);
   }
 
+  .nature-journal-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1.05fr 0.95fr;
+  }
+
+  .nature-journal-note,
+  .nature-gallery-block,
+  .inat-placeholder {
+    border: 1px solid #d4c4ac;
+    background: #fffaf5;
+    padding: 1rem;
+  }
+
+  .nature-gallery-strip {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.65rem;
+  }
+
+  .nature-gallery-strip div {
+    min-height: 7rem;
+    border: 1px solid #bba989;
+    background:
+      linear-gradient(180deg, rgba(219, 210, 192, 0.62) 0%, rgba(255, 251, 244, 0.95) 100%);
+  }
+
+  .gallery-wall {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .gallery-wall-item {
+    position: relative;
+    min-height: 14rem;
+    border: 1px solid #cdb89c;
+    background:
+      linear-gradient(180deg, rgba(255, 251, 245, 0.98) 0%, rgba(228, 217, 194, 0.8) 100%);
+    padding: 0.9rem;
+  }
+
+  .gallery-wall-frame {
+    position: relative;
+    min-height: 100%;
+  }
+
+  .gallery-wall-item-wide {
+    grid-column: span 2;
+  }
+
+  .gallery-wall-item-tall {
+    min-height: 20rem;
+  }
+
+  .gallery-wall-placeholder {
+    display: flex;
+    align-items: end;
+    justify-content: start;
+  }
+
+  .inat-placeholder-header {
+    @apply flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between;
+  }
+
+  .inat-card-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .inat-card {
+    border: 1px solid #d8c4a9;
+    background: #fffdf8;
+    padding: 0.85rem;
+  }
+
+  .inat-thumb {
+    min-height: 7rem;
+    border: 1px solid #bfa987;
+    background:
+      linear-gradient(180deg, rgba(222, 212, 190, 0.62) 0%, rgba(255, 252, 247, 0.95) 100%);
+  }
+
+  .archive-switcher-header {
+    @apply flex flex-col gap-4 xl:flex-row xl:items-end xl:justify-between;
+  }
+
+  .archive-switcher-tabs {
+    @apply flex flex-wrap gap-2;
+  }
+
+  .archive-switcher-tab {
+    @apply border border-[#cfb396] bg-[#fffaf5] px-3 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-[#7f6542];
+  }
+
+  .archive-switcher-tab-active {
+    @apply border-[#b18459] bg-[#efe1cf] text-[#6f532f];
+  }
+
+  .archive-gallery-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .archive-gallery-item {
+    position: relative;
+    min-height: 13rem;
+    border: 1px solid #cdb89c;
+    background:
+      linear-gradient(180deg, rgba(255, 251, 245, 0.98) 0%, rgba(228, 217, 194, 0.8) 100%);
+    padding: 0.8rem;
+  }
+
+  .archive-gallery-frame {
+    position: relative;
+    min-height: 100%;
+  }
+
+  .archive-gallery-placeholder {
+    display: flex;
+    min-height: 100%;
+    align-items: end;
+  }
+
+  .archive-gallery-item-wide {
+    grid-column: span 2;
+  }
+
+  .archive-gallery-item-tall {
+    min-height: 18rem;
+  }
+
+  .archive-observation-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .archive-observation-card {
+    border: 1px solid #d8c4a9;
+    background: #fffdf8;
+    padding: 0.85rem;
+  }
+
+  .archive-observation-thumb {
+    min-height: 7.5rem;
+    border: 1px solid #bfa987;
+    background:
+      linear-gradient(180deg, rgba(222, 212, 190, 0.62) 0%, rgba(255, 252, 247, 0.95) 100%);
+  }
+
+  .archive-switcher-footer {
+    @apply flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between;
+  }
+
+  .archive-switcher-controls {
+    @apply flex flex-wrap items-center gap-2;
+  }
+
+  .archive-switcher-control {
+    @apply border border-[#cfb396] bg-[#fffaf5] px-3 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-[#7f6542] disabled:opacity-50;
+  }
+
   .section-grid {
     @apply grid gap-5 md:grid-cols-2;
   }
@@ -410,5 +623,43 @@ body {
 
   to {
     background-position: 200% 50%;
+  }
+}
+
+@media (max-width: 768px) {
+  .nature-journal-grid,
+  .inat-card-grid,
+  .monitoring-panel-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-wall-item-wide,
+  .archive-gallery-item-wide {
+    grid-column: auto;
+  }
+}
+
+@media (min-width: 768px) {
+  .gallery-wall {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .archive-gallery-grid,
+  .archive-observation-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1200px) {
+  .gallery-wall {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .archive-gallery-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .archive-observation-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
