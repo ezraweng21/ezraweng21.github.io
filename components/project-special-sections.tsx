@@ -1,7 +1,9 @@
 import Link from "next/link";
 
-import { PublicGallery } from "@/components/public-gallery";
+import { CompactObservationGrid } from "@/components/compact-observation-grid";
+import { PagedPublicGallery } from "@/components/paged-public-gallery";
 import type { ProjectEntry } from "@/data/projects";
+import { getPublicGalleryImages } from "@/lib/public-gallery";
 
 type ProjectSpecialSectionsProps = {
   project: ProjectEntry;
@@ -89,6 +91,7 @@ function WastewaterSections() {
 
 async function NatureSections({ project }: { project: ProjectEntry }) {
   const inaturalistLink = project.links?.find((link) => link.label === "iNaturalist");
+  const natureImages = await getPublicGalleryImages("nature");
 
   return (
     <>
@@ -128,11 +131,7 @@ async function NatureSections({ project }: { project: ProjectEntry }) {
         </div>
 
         <div className="mt-5">
-          <PublicGallery
-            folder="nature"
-            emptyLabel="Photo placeholder"
-            placeholderCount={24}
-          />
+          <PagedPublicGallery images={natureImages} placeholderCount={72} perPage={30} />
         </div>
       </section>
 
@@ -154,15 +153,8 @@ async function NatureSections({ project }: { project: ProjectEntry }) {
           </div>
         </div>
 
-        <div className="archive-observation-grid archive-observation-grid-dense mt-5">
-          {Array.from({ length: 24 }).map((_, index) => (
-            <article key={index} className="archive-observation-card archive-observation-card-compact">
-              <div className="archive-observation-thumb archive-observation-thumb-compact" />
-              <p className="page-meta mt-2">
-                Observation {String(index + 1).padStart(2, "0")}
-              </p>
-            </article>
-          ))}
+        <div className="mt-5">
+          <CompactObservationGrid href={inaturalistLink?.href} perPage={28} totalItems={56} />
         </div>
       </section>
     </>

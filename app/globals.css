@@ -567,6 +567,72 @@ body {
     min-height: 4.6rem;
   }
 
+  .compact-gallery-grid {
+    display: grid;
+    gap: 0.45rem;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .compact-gallery-item {
+    position: relative;
+    min-height: 7.4rem;
+    border: 1px solid #ccb899;
+    background:
+      linear-gradient(180deg, rgba(255, 251, 245, 0.98) 0%, rgba(228, 217, 194, 0.8) 100%);
+    padding: 0.3rem;
+  }
+
+  .compact-gallery-item-wide {
+    grid-column: span 2;
+  }
+
+  .compact-gallery-item-tall {
+    min-height: 10rem;
+  }
+
+  .compact-gallery-frame {
+    position: relative;
+    min-height: 100%;
+  }
+
+  .compact-gallery-placeholder {
+    display: flex;
+    min-height: 100%;
+    align-items: end;
+    justify-content: start;
+  }
+
+  .compact-observation-grid {
+    display: grid;
+    gap: 0.45rem;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .compact-observation-card {
+    border: 1px solid #d8c4a9;
+    background: #fffdf8;
+    padding: 0.45rem;
+  }
+
+  .compact-observation-thumb {
+    min-height: 4rem;
+    border: 1px solid #bfa987;
+    background:
+      linear-gradient(180deg, rgba(222, 212, 190, 0.62) 0%, rgba(255, 252, 247, 0.95) 100%);
+  }
+
+  .compact-grid-footer {
+    @apply flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between;
+  }
+
+  .compact-grid-controls {
+    @apply flex flex-wrap items-center gap-2;
+  }
+
+  .compact-grid-control {
+    @apply border border-[#cfb396] bg-[#fffaf5] px-2.5 py-1.5 text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-[#7f6542] disabled:opacity-50;
+  }
+
   .section-grid {
     @apply grid gap-5 md:grid-cols-2;
   }
@@ -661,7 +727,8 @@ body {
   }
 
   .gallery-wall-item-wide,
-  .archive-gallery-item-wide {
+  .archive-gallery-item-wide,
+  .compact-gallery-item-wide {
     grid-column: auto;
   }
 }
@@ -670,6 +737,11 @@ body {
   .archive-observation-grid,
   .gallery-wall {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .compact-gallery-grid,
+  .compact-observation-grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
   }
 }
 
@@ -680,5 +752,10 @@ body {
 
   .archive-observation-grid {
     grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .compact-gallery-grid,
+  .compact-observation-grid {
+    grid-template-columns: repeat(8, minmax(0, 1fr));
   }
 }
