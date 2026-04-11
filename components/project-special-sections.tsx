@@ -1,6 +1,7 @@
-import { NatureArchiveSwitcher } from "@/components/nature-archive-switcher";
+import Link from "next/link";
+
+import { PublicGallery } from "@/components/public-gallery";
 import type { ProjectEntry } from "@/data/projects";
-import { getPublicGalleryImages } from "@/lib/public-gallery";
 
 type ProjectSpecialSectionsProps = {
   project: ProjectEntry;
@@ -88,7 +89,6 @@ function WastewaterSections() {
 
 async function NatureSections({ project }: { project: ProjectEntry }) {
   const inaturalistLink = project.links?.find((link) => link.label === "iNaturalist");
-  const natureImages = await getPublicGalleryImages("nature");
 
   return (
     <>
@@ -126,12 +126,45 @@ async function NatureSections({ project }: { project: ProjectEntry }) {
             Add images in bulk by dropping them into `public/galleries/nature/`.
           </p>
         </div>
+
+        <div className="mt-5">
+          <PublicGallery
+            folder="nature"
+            emptyLabel="Photo placeholder"
+            placeholderCount={24}
+          />
+        </div>
       </section>
 
-      <NatureArchiveSwitcher
-        images={natureImages}
-        inaturalistHref={inaturalistLink?.href}
-      />
+      <section className="project-special-block">
+        <div className="project-special-header">
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="eyebrow">iNaturalist Observations</p>
+              <p className="page-copy mt-2">
+                Keep this as a separate archive view for observations, species,
+                and field records.
+              </p>
+            </div>
+            {inaturalistLink ? (
+              <Link href={inaturalistLink.href} className="home-inline-link">
+                Open iNaturalist
+              </Link>
+            ) : null}
+          </div>
+        </div>
+
+        <div className="archive-observation-grid archive-observation-grid-dense mt-5">
+          {Array.from({ length: 24 }).map((_, index) => (
+            <article key={index} className="archive-observation-card archive-observation-card-compact">
+              <div className="archive-observation-thumb archive-observation-thumb-compact" />
+              <p className="page-meta mt-2">
+                Observation {String(index + 1).padStart(2, "0")}
+              </p>
+            </article>
+          ))}
+        </div>
+      </section>
     </>
   );
 }

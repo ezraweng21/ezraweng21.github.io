@@ -87,7 +87,7 @@ body {
   }
 
   .project-card {
-    @apply flex h-full flex-col border border-[#d8b6a0] bg-[#fffaf6] p-4 transition-colors duration-200 hover:border-[#c56f3b];
+    @apply flex h-full flex-col border border-[#d8b6a0] bg-[#fffaf6] p-3 transition-colors duration-200 hover:border-[#c56f3b];
   }
 
   .project-card-accent {
@@ -96,7 +96,39 @@ body {
   }
 
   .project-card-section {
-    @apply border-t border-[#ead5c7] pt-3;
+    @apply border-t border-[#ead5c7] pt-2.5;
+  }
+
+  .project-card-media > div:first-child {
+    padding-inline: 0.65rem;
+    padding-block: 0.45rem;
+  }
+
+  .project-card-media .page-meta {
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+  }
+
+  .project-card-media .text-\[0\.65rem\] {
+    font-size: 0.58rem;
+  }
+
+  .project-card-media .relative.aspect-\[4\/3\] {
+    aspect-ratio: 16 / 10;
+  }
+
+  .project-card-media .flex.h-full.items-end {
+    padding: 0.75rem;
+  }
+
+  .project-card-media .text-base {
+    font-size: 0.85rem;
+    line-height: 1.25rem;
+  }
+
+  .project-card-media .text-sm {
+    font-size: 0.75rem;
+    line-height: 1.15rem;
   }
 
   .project-card-wastewater .project-card-accent {
@@ -403,17 +435,17 @@ body {
 
   .gallery-wall {
     display: grid;
-    gap: 1rem;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.7rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .gallery-wall-item {
     position: relative;
-    min-height: 14rem;
+    min-height: 9.5rem;
     border: 1px solid #cdb89c;
     background:
       linear-gradient(180deg, rgba(255, 251, 245, 0.98) 0%, rgba(228, 217, 194, 0.8) 100%);
-    padding: 0.9rem;
+    padding: 0.45rem;
   }
 
   .gallery-wall-frame {
@@ -426,7 +458,7 @@ body {
   }
 
   .gallery-wall-item-tall {
-    min-height: 20rem;
+    min-height: 13.5rem;
   }
 
   .gallery-wall-placeholder {
@@ -510,33 +542,29 @@ body {
 
   .archive-observation-grid {
     display: grid;
-    gap: 1rem;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.7rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .archive-observation-card {
     border: 1px solid #d8c4a9;
     background: #fffdf8;
-    padding: 0.85rem;
+    padding: 0.65rem;
   }
 
   .archive-observation-thumb {
-    min-height: 7.5rem;
+    min-height: 5.5rem;
     border: 1px solid #bfa987;
     background:
       linear-gradient(180deg, rgba(222, 212, 190, 0.62) 0%, rgba(255, 252, 247, 0.95) 100%);
   }
 
-  .archive-switcher-footer {
-    @apply flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between;
+  .archive-observation-card-compact .page-meta {
+    font-size: 0.62rem;
   }
 
-  .archive-switcher-controls {
-    @apply flex flex-wrap items-center gap-2;
-  }
-
-  .archive-switcher-control {
-    @apply border border-[#cfb396] bg-[#fffaf5] px-3 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-[#7f6542] disabled:opacity-50;
+  .archive-observation-thumb-compact {
+    min-height: 4.6rem;
   }
 
   .section-grid {
@@ -628,7 +656,6 @@ body {
 
 @media (max-width: 768px) {
   .nature-journal-grid,
-  .inat-card-grid,
   .monitoring-panel-grid {
     grid-template-columns: 1fr;
   }
@@ -640,26 +667,18 @@ body {
 }
 
 @media (min-width: 768px) {
+  .archive-observation-grid,
   .gallery-wall {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .archive-gallery-grid,
-  .archive-observation-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
 
 @media (min-width: 1200px) {
   .gallery-wall {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-
-  .archive-gallery-grid {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-columns: repeat(6, minmax(0, 1fr));
   }
 
   .archive-observation-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 }

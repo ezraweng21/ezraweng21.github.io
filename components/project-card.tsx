@@ -29,7 +29,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
         hint={project.media.hint}
         src={project.media.src}
         ratio="landscape"
-        className="mb-4"
+        className="project-card-media mb-3"
       />
 
       <div className="flex items-start justify-between gap-4">
@@ -38,14 +38,14 @@ export function ProjectCard({ project }: ProjectCardProps) {
           Open
         </span>
       </div>
-      <h3 className="mt-2 text-lg leading-snug text-ink sm:text-xl">
+      <h3 className="mt-2 text-base leading-snug text-ink sm:text-[1.05rem]">
         {project.title}
       </h3>
-      <p className="page-copy mt-3">{project.shortSummary}</p>
+      <p className="mt-2 text-[0.82rem] leading-5 text-ink/72">{project.shortSummary}</p>
 
-      <div className="project-card-section mt-4">
+      <div className="project-card-section mt-3">
         <p className="page-meta">Status</p>
-        <p className="mt-1 text-sm leading-6 text-ink/78">{project.status}</p>
+        <p className="mt-1 text-[0.8rem] leading-5 text-ink/78">{project.status}</p>
       </div>
 
       <div className="project-card-section mt-auto flex items-center justify-between">
