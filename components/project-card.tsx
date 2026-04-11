@@ -1,17 +1,37 @@
 import Link from "next/link";
 
+import { MediaSlot } from "@/components/media-slot";
 import type { ProjectEntry } from "@/data/projects";
 
 type ProjectCardProps = {
   project: ProjectEntry;
 };
 
+const cardThemeClassNames: Record<ProjectEntry["theme"], string> = {
+  wastewater: "project-card-wastewater",
+  civic: "project-card-civic",
+  portfolio: "project-card-portfolio",
+  biology: "project-card-biology",
+  cs: "project-card-cs",
+  nature: "project-card-nature",
+};
+
 export function ProjectCard({ project }: ProjectCardProps) {
   return (
     <Link
       href={`/projects/${project.slug}`}
-      className="project-card group"
+      className={`project-card group ${cardThemeClassNames[project.theme]}`}
     >
+      <div className="project-card-accent" aria-hidden="true" />
+      <MediaSlot
+        alt={project.media.alt}
+        label={project.media.label}
+        hint={project.media.hint}
+        src={project.media.src}
+        ratio="landscape"
+        className="mb-4"
+      />
+
       <div className="flex items-start justify-between gap-4">
         <p className="eyebrow">{project.category}</p>
         <span className="page-meta opacity-70 transition-opacity group-hover:opacity-100">
@@ -24,26 +44,8 @@ export function ProjectCard({ project }: ProjectCardProps) {
       <p className="page-copy mt-3">{project.shortSummary}</p>
 
       <div className="project-card-section mt-4">
-        <div className="project-card-grid">
-          <div>
-            <p className="page-meta">Role</p>
-            <p className="mt-1 text-sm leading-6 text-ink/78">{project.role}</p>
-          </div>
-          <div>
-            <p className="page-meta">Status</p>
-            <p className="mt-1 text-sm leading-6 text-ink/78">{project.status}</p>
-          </div>
-        </div>
-      </div>
-
-      <div className="project-card-section mt-4">
-        <div className="flex flex-wrap gap-2">
-          {project.stack.slice(0, 3).map((item) => (
-            <span key={item} className="project-card-chip">
-              {item}
-            </span>
-          ))}
-        </div>
+        <p className="page-meta">Status</p>
+        <p className="mt-1 text-sm leading-6 text-ink/78">{project.status}</p>
       </div>
 
       <div className="project-card-section mt-auto flex items-center justify-between">

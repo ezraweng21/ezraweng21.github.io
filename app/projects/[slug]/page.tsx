@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { MediaSlot } from "@/components/media-slot";
+import { ProjectMotif } from "@/components/project-motif";
 import { getProjectBySlug, projects } from "@/data/projects";
 
 type ProjectDetailPageProps = {
@@ -47,6 +49,17 @@ export default async function ProjectDetailPage({
 
       <div className="page-split mt-7 sm:mt-8">
         <div>
+          <ProjectMotif project={project} />
+
+          <MediaSlot
+            alt={project.media.alt}
+            label={project.media.label}
+            hint={project.media.hint}
+            src={project.media.src}
+            ratio="wide"
+            className="mb-6"
+          />
+
           {project.sections.map((section, index) => (
             <section
               key={section.title}
@@ -56,6 +69,27 @@ export default async function ProjectDetailPage({
               <p className="page-copy mt-3 max-w-2xl">{section.body}</p>
             </section>
           ))}
+
+          {project.theme === "nature" ? (
+            <section className="border-t border-[#dec3ae] py-4">
+              <p className="eyebrow">Observation Feed</p>
+              <p className="page-copy mt-3 max-w-2xl">
+                Add selected observations, gallery items, widget output, or an
+                API-driven feed here later.
+              </p>
+              <div className="mt-4 grid gap-3 sm:grid-cols-3">
+                <div className="border border-[#d8b6a0] bg-[#fffaf6] p-3 text-sm leading-6 text-ink/72">
+                  Observation card placeholder
+                </div>
+                <div className="border border-[#d8b6a0] bg-[#fffaf6] p-3 text-sm leading-6 text-ink/72">
+                  Observation card placeholder
+                </div>
+                <div className="border border-[#d8b6a0] bg-[#fffaf6] p-3 text-sm leading-6 text-ink/72">
+                  Observation card placeholder
+                </div>
+              </div>
+            </section>
+          ) : null}
         </div>
 
         <aside className="space-y-5">

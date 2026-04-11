@@ -1,17 +1,19 @@
 import Link from "next/link";
 
+import { MediaSlot } from "@/components/media-slot";
+
 const highlights = [
   {
-    title: "Computational biology",
-    text: "Wastewater and genomic surveillance work focused on viral abundance, genotype dynamics, and public-health signal.",
+    title: "Highlight 01",
+    text: "Add one short featured area here.",
   },
   {
-    title: "Dashboards and data systems",
-    text: "Projects that move from messy datasets into cleaned workflows, visual interfaces, and interpretable outputs.",
+    title: "Highlight 02",
+    text: "Add one short featured area here.",
   },
   {
-    title: "Clubs and competitions",
-    text: "Teaching, organizing, contest infrastructure, and leadership work across biology, computer science, and math.",
+    title: "Highlight 03",
+    text: "Add one short featured area here.",
   },
 ];
 
@@ -30,12 +32,10 @@ export default function HomePage() {
           <div>
             <p className="eyebrow">Home</p>
             <h1 className="mt-3 max-w-[12ch] text-4xl leading-[1.04] text-ink sm:text-[2.85rem] lg:text-[3.2rem]">
-              Biology, code, and the systems in between.
+              Ezra Weng.
             </h1>
             <p className="mt-4 max-w-2xl text-sm leading-6 text-ink/72">
-              I am Ezra Weng, a student building dashboards, data pipelines,
-              and websites around biology, public health, competitions, and
-              student organizations.
+              Add a short homepage intro here. Keep it brief and personal.
             </p>
 
             <div className="mt-6 flex flex-wrap gap-3">
@@ -52,19 +52,12 @@ export default function HomePage() {
           </div>
 
           <div className="home-image-block">
-            <div className="flex items-center justify-between text-xs uppercase tracking-[0.18em] text-ink/55">
-              <span>Photo / headshot</span>
-              <span>Placeholder</span>
-            </div>
-            <div className="home-image-frame">
-              <div>
-                <p className="text-lg text-ink">Photo placeholder</p>
-                <p className="mt-3 max-w-xs text-sm leading-6 text-ink/70">
-                  A portrait, field photo, or quieter personal visual can live
-                  here once the rest of the content settles.
-                </p>
-              </div>
-            </div>
+            <MediaSlot
+              alt="Homepage portrait or field photo"
+              label="Photo / headshot"
+              hint="Add a portrait, field photo, or quieter personal image once you decide what you want the homepage to lead with."
+              ratio="portrait"
+            />
             <p className="mt-3 text-sm leading-6 text-ink/70">
               The homepage stays simple. The deeper pages hold the project
               notes, activity context, and technical details.
@@ -78,13 +71,11 @@ export default function HomePage() {
           <div>
             <p className="eyebrow">Short Intro</p>
             <h2 className="mt-2 text-2xl text-ink sm:text-[2rem]">
-              Technical work with biological context.
+              Add a slightly longer intro here.
             </h2>
             <p className="mt-3 max-w-2xl text-sm leading-6 text-ink/70">
-              A lot of my work starts with messy systems: wastewater sequencing
-              data, city operations datasets, club logistics, or competition
-              infrastructure. I like turning those into something structured
-              enough to inspect, use, and improve.
+              Use this section for a few lines on what kinds of work you do and
+              how the site is organized.
             </p>
           </div>
 
@@ -110,12 +101,10 @@ export default function HomePage() {
           <div>
             <p className="eyebrow">Featured Highlights</p>
             <h2 className="mt-2 text-2xl text-ink sm:text-[2rem]">
-              A small map of the work so far.
+              Add a short section heading here.
             </h2>
             <p className="mt-3 max-w-2xl text-sm leading-6 text-ink/70">
-              The project pages go deeper, but the common thread is systems:
-              biological data, civic data, student organizations, and tools
-              that make complicated work easier to navigate.
+              Use this area for a few featured themes, projects, or directions.
             </p>
           </div>
           <Link href="/projects" className="home-inline-link">

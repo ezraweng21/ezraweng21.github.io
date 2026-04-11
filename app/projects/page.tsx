@@ -6,25 +6,23 @@ export default function ProjectsPage() {
   return (
     <SectionWrapper
       eyebrow="Projects"
-      title="Projects and technical work."
-      description="Dashboards, data systems, organization websites, and the technical work behind them."
+      title="Projects."
+      description="Use this page for project entries and links to deeper detail pages."
     >
       <div className="page-split">
         <div className="page-rule-strong">
           <p className="eyebrow">Index</p>
           <p className="page-copy mt-3 max-w-2xl">
-            Each project has a short card here and a deeper page behind it. The
-            emphasis is on systems: biological data, civic data, reusable
-            websites, and interfaces that need to stay maintainable.
+            Add a short note here if you want context for the project list.
           </p>
         </div>
 
         <div className="page-rule">
-          <p className="eyebrow">What to look for</p>
+          <p className="eyebrow">Notes</p>
           <div className="mt-3 grid gap-3 text-sm leading-6 text-ink/72">
-            <p>Data that starts messy and needs structure.</p>
-            <p>Dashboards built around interpretation, not just charts.</p>
-            <p>Websites that support real student organizations.</p>
+            <p>Add one short line here.</p>
+            <p>Add one short line here.</p>
+            <p>Add one short line here.</p>
           </div>
         </div>
       </div>
@@ -34,8 +32,7 @@ export default function ProjectsPage() {
           <div>
             <p className="eyebrow">Project Gallery</p>
             <p className="page-copy mt-2 max-w-2xl">
-              A mix of public-health dashboards, data-heavy tools, and sites built
-              for real student groups.
+              Add a short gallery note here if needed.
             </p>
           </div>
           <p className="page-meta">{projects.length} projects</p>

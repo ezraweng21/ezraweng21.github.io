@@ -90,16 +90,240 @@ body {
     @apply flex h-full flex-col border border-[#d8b6a0] bg-[#fffaf6] p-4 transition-colors duration-200 hover:border-[#c56f3b];
   }
 
+  .project-card-accent {
+    margin: -1rem -1rem 1rem;
+    height: 0.45rem;
+  }
+
   .project-card-section {
     @apply border-t border-[#ead5c7] pt-3;
   }
 
-  .project-card-chip {
-    @apply border border-[#dec3ae] bg-[#fffdf9] px-2 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-[#8f5b39];
+  .project-card-wastewater .project-card-accent {
+    background:
+      linear-gradient(90deg, #6f8f97 0%, #97c2ba 30%, #7ca08f 55%, #4d665f 100%);
   }
 
-  .project-card-grid {
-    @apply grid gap-3 sm:grid-cols-2;
+  .project-card-civic .project-card-accent {
+    background:
+      linear-gradient(90deg, #cf7f45 0%, #e8b27f 33%, #c46b33 66%, #925538 100%);
+  }
+
+  .project-card-portfolio .project-card-accent {
+    background:
+      linear-gradient(90deg, #d7b08d 0%, #e7d0b4 50%, #b9845a 100%);
+  }
+
+  .project-card-biology .project-card-accent {
+    background:
+      linear-gradient(90deg, #879b73 0%, #c0c9a4 50%, #8b6c45 100%);
+  }
+
+  .project-card-cs .project-card-accent {
+    background:
+      linear-gradient(90deg, #88715a 0%, #d7c0a9 45%, #aa6b36 100%);
+  }
+
+  .project-card-nature .project-card-accent {
+    background:
+      linear-gradient(90deg, #8c7048 0%, #b08e57 35%, #7d9664 70%, #d4b17a 100%);
+  }
+
+  .project-motif-shell {
+    @apply mb-6 border border-[#d8b6a0] bg-[#fffaf6];
+  }
+
+  .project-motif-copy {
+    @apply border-b border-[#ead5c7] px-4 py-3;
+  }
+
+  .project-motif-visual {
+    @apply relative overflow-hidden p-4;
+    min-height: 9rem;
+  }
+
+  .project-motif-shell-wastewater .project-motif-visual {
+    background: linear-gradient(180deg, #f4ede2 0%, #e3d4c1 100%);
+  }
+
+  .project-motif-shell-civic .project-motif-visual {
+    background: linear-gradient(180deg, #f8efe7 0%, #ecd7c2 100%);
+  }
+
+  .project-motif-shell-portfolio .project-motif-visual {
+    background: linear-gradient(180deg, #f7f1ea 0%, #ead9c8 100%);
+  }
+
+  .project-motif-shell-biology .project-motif-visual {
+    background: linear-gradient(180deg, #f4f0e4 0%, #dde1ca 100%);
+  }
+
+  .project-motif-shell-cs .project-motif-visual {
+    background: linear-gradient(180deg, #f6efe8 0%, #e4d6c8 100%);
+  }
+
+  .project-motif-shell-nature .project-motif-visual {
+    background: linear-gradient(180deg, #f5f0e5 0%, #e5ddc6 100%);
+  }
+
+  .wastewater-pipe {
+    position: relative;
+    overflow: hidden;
+    height: 3.2rem;
+    border: 1px solid #8b7967;
+    border-radius: 999px;
+    background: linear-gradient(180deg, #6d625a 0%, #4e4741 100%);
+  }
+
+  .wastewater-flow {
+    position: absolute;
+    inset: 0.6rem;
+    border-radius: 999px;
+    opacity: 0.92;
+  }
+
+  .wastewater-flow-a {
+    background:
+      linear-gradient(90deg, transparent 0%, rgba(167, 205, 190, 0.9) 25%, rgba(114, 146, 136, 0.9) 55%, transparent 100%);
+    animation: wastewater-flow 7s linear infinite;
+    background-size: 180% 100%;
+  }
+
+  .wastewater-flow-b {
+    background:
+      linear-gradient(90deg, transparent 0%, rgba(120, 160, 145, 0.55) 35%, rgba(185, 213, 199, 0.6) 65%, transparent 100%);
+    animation: wastewater-flow 10s linear infinite reverse;
+    background-size: 220% 100%;
+    mix-blend-mode: screen;
+  }
+
+  .wastewater-readout {
+    @apply mt-4 flex flex-wrap gap-2;
+  }
+
+  .wastewater-readout span {
+    @apply border border-[#b7b29f] px-2 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-[#6a655d];
+  }
+
+  .civic-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+
+  .civic-grid span {
+    display: block;
+    min-height: 3rem;
+    border: 1px solid #c79f80;
+    background:
+      linear-gradient(135deg, rgba(212, 167, 124, 0.25) 0%, rgba(255, 250, 244, 0.8) 100%);
+  }
+
+  .portfolio-window {
+    position: absolute;
+    border: 1px solid #c8aa90;
+    background: rgba(255, 251, 246, 0.75);
+  }
+
+  .portfolio-window-back {
+    inset: 1.2rem 3rem 2.2rem 1rem;
+  }
+
+  .portfolio-window-front {
+    inset: 2.2rem 1rem 1rem 4rem;
+    box-shadow: -0.75rem -0.75rem 0 #ead3bb;
+  }
+
+  .biology-specimen-line {
+    position: absolute;
+    inset: 1rem auto 1rem 2rem;
+    width: 1px;
+    background: #9ca684;
+  }
+
+  .biology-specimen-label {
+    display: inline-block;
+    margin: 0 0.6rem 0.6rem 0;
+    border: 1px solid #c9c6aa;
+    padding: 0.45rem 0.6rem;
+    background: rgba(255, 252, 245, 0.72);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #6f775d;
+  }
+
+  .cs-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+
+  .cs-grid span {
+    display: block;
+    min-height: 3.2rem;
+    border: 1px solid #b89e85;
+    background:
+      linear-gradient(180deg, rgba(255, 251, 246, 0.92) 0%, rgba(227, 214, 201, 0.72) 100%);
+    box-shadow: inset 0 0 0 1px rgba(173, 120, 74, 0.14);
+  }
+
+  .nature-journal-page {
+    position: relative;
+    min-height: 9rem;
+    border: 1px solid #b9ad92;
+    background:
+      repeating-linear-gradient(
+        180deg,
+        rgba(255, 251, 244, 0.92) 0,
+        rgba(255, 251, 244, 0.92) 1.55rem,
+        rgba(203, 194, 169, 0.62) 1.55rem,
+        rgba(203, 194, 169, 0.62) 1.62rem
+      );
+    padding: 1rem 1rem 1rem 4.5rem;
+  }
+
+  .nature-camera-mark,
+  .nature-leaf-mark {
+    position: absolute;
+    left: 1rem;
+    width: 2.2rem;
+    height: 2.2rem;
+    border: 1px solid #a8926f;
+    background: rgba(247, 240, 227, 0.92);
+  }
+
+  .nature-camera-mark {
+    top: 1rem;
+  }
+
+  .nature-camera-mark::after {
+    content: "";
+    position: absolute;
+    inset: 0.42rem;
+    border: 1px solid #8f7d5c;
+    border-radius: 999px;
+  }
+
+  .nature-leaf-mark {
+    top: 4rem;
+    border-radius: 999px 0 999px 0;
+  }
+
+  .nature-contact-strip {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.6rem;
+    margin-top: 0.2rem;
+  }
+
+  .nature-contact-strip span {
+    display: block;
+    min-height: 4.8rem;
+    border: 1px solid #bca884;
+    background:
+      linear-gradient(180deg, rgba(219, 206, 181, 0.52) 0%, rgba(255, 252, 246, 0.92) 100%);
   }
 
   .section-grid {
@@ -120,10 +344,6 @@ body {
 
   .home-image-block {
     @apply border border-[#dec3ae] bg-[#f7e8da] p-3;
-  }
-
-  .home-image-frame {
-    @apply mt-3 flex min-h-[19rem] items-end border border-[#d59f77] bg-[#eed5c0] p-4;
   }
 
   .home-section {
@@ -180,5 +400,15 @@ body {
 
   .home-inline-link {
     @apply text-xs font-semibold uppercase tracking-[0.16em] text-[#8f5b39] hover:text-[#b85f2c] hover:underline;
+  }
+}
+
+@keyframes wastewater-flow {
+  from {
+    background-position: 0% 50%;
+  }
+
+  to {
+    background-position: 200% 50%;
   }
 }

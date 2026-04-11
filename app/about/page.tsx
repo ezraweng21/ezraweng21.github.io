@@ -6,14 +6,14 @@ export default function AboutPage() {
   return (
     <SectionWrapper
       eyebrow="About"
-      title="Biology, code, and data systems."
-      description="A little more context for the projects: what I work on, what I keep coming back to, and how the technical pieces connect."
+      title="About."
+      description="Use this page for a short introduction, a few themes, and a timeline."
     >
       <div className="page-split">
         <article>
           <p className="eyebrow">Story</p>
           <h2 className="mt-2 text-2xl text-ink sm:text-[2rem]">
-            Extracting signal from messy systems.
+            Add section heading here.
           </h2>
           <p className="page-copy mt-4">{aboutIntro}</p>
         </article>

@@ -5,8 +5,8 @@ export default function ActivitiesPage() {
   return (
     <SectionWrapper
       eyebrow="Activities"
-      title="Clubs, competitions, and work outside the project list."
-      description="The projects show technical output. This page gives context for the organizations, teaching, competitions, and systems work around them."
+      title="Activities."
+      description="Use this page for organizations, competitions, teaching, service, or other work."
     >
       <div className="grid gap-6 md:grid-cols-2">
         {activities.map((item) => (
@@ -26,18 +26,14 @@ export default function ActivitiesPage() {
 
       <div className="page-split mt-10">
         <div>
-          <p className="eyebrow">Pattern</p>
+          <p className="eyebrow">Notes</p>
           <p className="page-copy mt-3 max-w-2xl">
-            Most of this work sits between technical systems and people:
-            building contest infrastructure, managing club operations, teaching
-            younger students, and making organizations easier to run.
+            Add a short note here if you want a summary for this page.
           </p>
         </div>
         <div className="page-rule border-[#c56f3b]">
           <p className="page-copy">
-            The common thread is scale. These activities involve real groups,
-            real logistics, and systems that need to keep working after the
-            first version is built.
+            Add a second short note here if needed.
           </p>
         </div>
       </div>

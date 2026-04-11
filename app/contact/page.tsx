@@ -31,7 +31,7 @@ export default function ContactPage() {
     <SectionWrapper
       eyebrow="Contact"
       title="Contact and links."
-      description="A short page for the main ways to reach me or find the code behind the work."
+      description="Use this page for the main public links you want to share."
     >
       <div className="page-list">
         {contactLinks.map((link) => (
@@ -55,9 +55,7 @@ export default function ContactPage() {
 
       <div className="page-rule mt-10">
         <p className="page-copy">
-          A resume link can be added later without changing the page structure.
-          For now, the public links point to the places that already hold the
-          work.
+          Add a resume link later if you want one public.
         </p>
       </div>
     </SectionWrapper>
