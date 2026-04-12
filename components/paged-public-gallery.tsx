@@ -36,13 +36,8 @@ export function PagedPublicGallery({
   return (
     <div>
       <div className="compact-gallery-grid">
-        {visibleItems.map((image, index) => (
-          <figure
-            key={image.name}
-            className={`compact-gallery-item ${
-              index % 10 === 0 ? "compact-gallery-item-wide" : ""
-            } ${index % 14 === 0 ? "compact-gallery-item-tall" : ""}`}
-          >
+        {visibleItems.map((image) => (
+          <figure key={image.name} className="compact-gallery-item">
             {image.src ? (
               <div className="compact-gallery-frame">
                 <Image

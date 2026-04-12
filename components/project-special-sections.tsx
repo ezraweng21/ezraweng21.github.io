@@ -3,6 +3,7 @@ import Link from "next/link";
 import { CompactObservationGrid } from "@/components/compact-observation-grid";
 import { PagedPublicGallery } from "@/components/paged-public-gallery";
 import type { ProjectEntry } from "@/data/projects";
+import { extractINaturalistUserLogin } from "@/lib/inaturalist";
 import { getPublicGalleryImages } from "@/lib/public-gallery";
 
 type ProjectSpecialSectionsProps = {
@@ -91,6 +92,7 @@ function WastewaterSections() {
 
 async function NatureSections({ project }: { project: ProjectEntry }) {
   const inaturalistLink = project.links?.find((link) => link.label === "iNaturalist");
+  const inaturalistUserLogin = extractINaturalistUserLogin(inaturalistLink?.href);
   const natureImages = await getPublicGalleryImages("nature");
 
   return (
@@ -154,7 +156,12 @@ async function NatureSections({ project }: { project: ProjectEntry }) {
         </div>
 
         <div className="mt-5">
-          <CompactObservationGrid href={inaturalistLink?.href} perPage={28} totalItems={56} />
+          <CompactObservationGrid
+            href={inaturalistLink?.href}
+            userLogin={inaturalistUserLogin}
+            perPage={28}
+            totalItems={84}
+          />
         </div>
       </section>
     </>

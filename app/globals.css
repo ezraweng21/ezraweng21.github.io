@@ -575,19 +575,11 @@ body {
 
   .compact-gallery-item {
     position: relative;
-    min-height: 7.4rem;
+    min-height: 6.6rem;
     border: 1px solid #ccb899;
     background:
       linear-gradient(180deg, rgba(255, 251, 245, 0.98) 0%, rgba(228, 217, 194, 0.8) 100%);
     padding: 0.3rem;
-  }
-
-  .compact-gallery-item-wide {
-    grid-column: span 2;
-  }
-
-  .compact-gallery-item-tall {
-    min-height: 10rem;
   }
 
   .compact-gallery-frame {
@@ -609,16 +601,73 @@ body {
   }
 
   .compact-observation-card {
+    display: block;
+    overflow: hidden;
     border: 1px solid #d8c4a9;
     background: #fffdf8;
-    padding: 0.45rem;
+    transition:
+      transform 180ms ease,
+      border-color 180ms ease,
+      background-color 180ms ease;
+  }
+
+  .compact-observation-link:hover,
+  .compact-observation-link:focus-visible {
+    transform: translateY(-2px);
+    border-color: #c39162;
+    background: #fff9f1;
   }
 
   .compact-observation-thumb {
-    min-height: 4rem;
-    border: 1px solid #bfa987;
+    position: relative;
+    min-height: 4.5rem;
+    border-bottom: 1px solid #bfa987;
     background:
       linear-gradient(180deg, rgba(222, 212, 190, 0.62) 0%, rgba(255, 252, 247, 0.95) 100%);
+  }
+
+  .compact-observation-thumb img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .compact-observation-thumb-placeholder {
+    width: 100%;
+    height: 100%;
+  }
+
+  .compact-observation-copy {
+    padding: 0.45rem 0.5rem 0.55rem;
+  }
+
+  .compact-observation-name {
+    font-size: 0.77rem;
+    line-height: 1.15;
+    color: #4f3426;
+  }
+
+  .compact-observation-taxon {
+    margin-top: 0.16rem;
+    font-size: 0.67rem;
+    line-height: 1.2;
+    color: #715744;
+    font-style: italic;
+  }
+
+  .compact-observation-meta {
+    margin-top: 0.18rem;
+    font-size: 0.64rem;
+    line-height: 1.25;
+    color: #7a624f;
+  }
+
+  .compact-observation-status {
+    margin-top: 0.18rem;
+    font-size: 0.66rem;
+    line-height: 1.3;
+    color: #7a624f;
   }
 
   .compact-grid-footer {
@@ -727,8 +776,7 @@ body {
   }
 
   .gallery-wall-item-wide,
-  .archive-gallery-item-wide,
-  .compact-gallery-item-wide {
+  .archive-gallery-item-wide {
     grid-column: auto;
   }
 }

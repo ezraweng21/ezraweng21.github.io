@@ -124,6 +124,14 @@ export const projects: ProjectEntry[] = [
     links: [
       { label: "Repo", href: "https://github.com/mat-the-doubleu/sugarlanddatathon" },
       { label: "Live", href: "https://matthewchen3241.shinyapps.io/dataday/" },
+      {
+        label: "Instagram",
+        href: "https://www.instagram.com/p/DV2K7NvDLHT/?img_index=4",
+      },
+      {
+        label: "OpenGov Story",
+        href: "https://stories.opengov.com/sugarlandtx/9bf97005-412b-41bb-9871-eb28358ff42b/published/x7vLNk2fE?currentPageId=69af3737535ff591a7c29977",
+      },
     ],
   },
   {
