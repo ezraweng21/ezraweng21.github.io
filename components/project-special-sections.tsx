@@ -17,8 +17,8 @@ function WastewaterSections() {
         <div className="project-special-header">
           <p className="eyebrow">Flow Outline</p>
           <p className="page-copy mt-2">
-            Use this section for the project flow: source data, processing,
-            dashboard layers, and what the system is meant to help reveal.
+            Multi-year wastewater surveillance workflow for tracking norovirus
+            abundance and genotype turnover across Texas sites.
           </p>
         </div>
 
@@ -28,8 +28,9 @@ function WastewaterSections() {
             <div>
               <h3 className="text-lg text-ink">Data intake</h3>
               <p className="page-copy mt-2">
-                Add notes here for sample sources, sequencing outputs, or data
-                collection context.
+                Longitudinal viral abundance data collected across 16 sites in
+                multiple Texas cities, paired with genotype-level records such
+                as GII.4 and GII.17.
               </p>
             </div>
           </div>
@@ -38,8 +39,9 @@ function WastewaterSections() {
             <div>
               <h3 className="text-lg text-ink">Processing pipeline</h3>
               <p className="page-copy mt-2">
-                Add notes here for normalization, aggregation, genotype
-                handling, or other processing steps.
+                Time-series analysis, comparative strain tracking, and
+                reproducible visualization workflows built in R, tidyverse,
+                ggplot2, and R Markdown.
               </p>
             </div>
           </div>
@@ -48,8 +50,9 @@ function WastewaterSections() {
             <div>
               <h3 className="text-lg text-ink">Dashboard output</h3>
               <p className="page-copy mt-2">
-                Add notes here for views, signals, and the kinds of patterns
-                the dashboard makes easier to inspect.
+                Site-level and cross-site views designed to surface genotype
+                replacement, seasonal dynamics, and localized differences in
+                strain composition.
               </p>
             </div>
           </div>
@@ -58,30 +61,34 @@ function WastewaterSections() {
 
       <section className="project-special-block">
         <div className="project-special-header">
-          <p className="eyebrow">Monitoring Panels</p>
+          <p className="eyebrow">Key Findings</p>
           <p className="page-copy mt-2">
-            Use this area for screenshots or descriptions of the main views you
-            want to show.
+            Main patterns observed from the wastewater-based norovirus
+            surveillance analysis.
           </p>
         </div>
 
         <div className="monitoring-panel-grid mt-5">
           <div className="monitoring-panel">
-            <span className="page-meta">Panel A</span>
+            <span className="page-meta">Genotype shift</span>
             <p className="page-copy mt-3">
-              Add a chart or screenshot placeholder here.
+              Observed a shift in dominant genotypes from GII.4 to GII.17
+              across multiple sites.
             </p>
           </div>
           <div className="monitoring-panel">
-            <span className="page-meta">Panel B</span>
+            <span className="page-meta">Temporal dynamics</span>
             <p className="page-copy mt-3">
-              Add a chart or screenshot placeholder here.
+              Detected recurring temporal patterns consistent with seasonal or
+              cyclical behavior.
             </p>
           </div>
           <div className="monitoring-panel monitoring-panel-wide">
-            <span className="page-meta">Panel C</span>
+            <span className="page-meta">Spatial variation</span>
             <p className="page-copy mt-3">
-              Add a larger dashboard or trend view here.
+              Site-specific strain composition and rapid turnover suggest
+              localized transmission differences and possible immune or
+              evolutionary pressure shaping replacement.
             </p>
           </div>
         </div>
@@ -94,6 +101,7 @@ async function NatureSections({ project }: { project: ProjectEntry }) {
   const inaturalistLink = project.links?.find((link) => link.label === "iNaturalist");
   const inaturalistUserLogin = extractINaturalistUserLogin(inaturalistLink?.href);
   const natureImages = await getPublicGalleryImages("nature");
+  const photographyImages = await getPublicGalleryImages("photography");
 
   return (
     <>
@@ -133,7 +141,32 @@ async function NatureSections({ project }: { project: ProjectEntry }) {
         </div>
 
         <div className="mt-5">
-          <PagedPublicGallery images={natureImages} placeholderCount={72} perPage={30} />
+          <PagedPublicGallery
+            images={natureImages}
+            placeholderCount={72}
+            perPage={30}
+            variant="nature"
+          />
+        </div>
+      </section>
+
+      <section className="project-special-block">
+        <div className="project-special-header">
+          <p className="eyebrow">Photography Archive</p>
+          <p className="page-copy mt-2">
+            Use `public/galleries/photography/` for a looser second archive.
+            This section can hold whatever you want to upload without needing a
+            strict taxonomy first.
+          </p>
+        </div>
+
+        <div className="mt-5">
+          <PagedPublicGallery
+            images={photographyImages}
+            placeholderCount={60}
+            perPage={30}
+            variant="photography"
+          />
         </div>
       </section>
 
@@ -159,8 +192,8 @@ async function NatureSections({ project }: { project: ProjectEntry }) {
           <CompactObservationGrid
             href={inaturalistLink?.href}
             userLogin={inaturalistUserLogin}
-            perPage={28}
-            totalItems={84}
+            perPage={30}
+            totalItems={90}
           />
         </div>
       </section>

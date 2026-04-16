@@ -4,6 +4,7 @@ export type INaturalistArchiveObservation = {
   imageUrl?: string;
   commonName?: string;
   scientificName: string;
+  iconicTaxonName?: string;
   observedOn?: string;
   placeGuess?: string;
   qualityGrade?: string;
@@ -16,6 +17,7 @@ type INaturalistPhoto = {
 type INaturalistTaxon = {
   name?: string;
   preferred_common_name?: string;
+  iconic_taxon_name?: string;
 };
 
 type INaturalistObservationResult = {
@@ -80,6 +82,7 @@ export function normalizeINaturalistObservations(
         imageUrl: upgradePhotoUrl(observation.photos?.[0]?.url),
         commonName: observation.taxon?.preferred_common_name,
         scientificName,
+        iconicTaxonName: observation.taxon?.iconic_taxon_name,
         observedOn: observation.observed_on_string,
         placeGuess: observation.place_guess,
         qualityGrade: observation.quality_grade,

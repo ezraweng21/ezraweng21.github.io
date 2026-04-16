@@ -47,8 +47,10 @@ export const projects: ProjectEntry[] = [
     slug: "tephi-wastewater-dashboard",
     title: "Wastewater Viral Surveillance Dashboard",
     category: "Computational Biology",
-    summary: "Add a 2-3 sentence project summary here.",
-    shortSummary: "Add a short one-line card summary here.",
+    summary:
+      "Wastewater-based norovirus genomic surveillance project using multi-year data from 16 sites across Texas. The work tracks genotype dynamics, temporal patterns, and site-level variation to study viral transmission outside clinical testing.",
+    shortSummary:
+      "Multi-year norovirus wastewater surveillance across Texas sites, focused on genotype dynamics and temporal change.",
     role: "Developer + Data Analyst",
     stack: ["R", "R Markdown", "Shiny", "ggplot2", "dplyr"],
     timeframe: "2025-present",
@@ -63,22 +65,25 @@ export const projects: ProjectEntry[] = [
         "Add a screenshot showing abundance trends, genotype breakdowns, or site-level dashboard views.",
     },
     notes: [
-      "Add one key point here.",
-      "Add one key point here.",
-      "Add one key point here.",
+      "Tracked genotype-level dynamics such as GII.4 to GII.17 shifts across multiple sites.",
+      "Compared strain prevalence and turnover patterns across time and location.",
+      "Built reproducible R workflows for longitudinal visualization and genomic surveillance analysis.",
     ],
     sections: [
       {
-        title: "Overview",
-        body: "Add a short overview here.",
+        title: "Context",
+        body:
+          "Wastewater surveillance offers a population-level view of viral transmission independent of clinical testing. This project analyzes multi-year wastewater data from 16 sites across Texas to investigate norovirus genotype dynamics and temporal trends.",
       },
       {
-        title: "Build Notes",
-        body: "Add implementation notes here.",
+        title: "Data & Methods",
+        body:
+          "The analysis uses longitudinal viral abundance and genotype-level data across multiple cities and sites. Workflows in R, tidyverse, ggplot2, and R Markdown support time-series visualization, comparative strain tracking, and reproducible reporting through GitHub.",
       },
       {
-        title: "Details",
-        body: "Add any deeper context, tradeoffs, or results here.",
+        title: "Interpretation",
+        body:
+          "Observed shifts in dominant genotypes, recurring temporal patterns, and site-specific strain differences suggest that wastewater data can capture early signals of replacement dynamics and localized transmission. The results support integrating genomic wastewater surveillance into public health monitoring systems.",
       },
     ],
     links: [{ label: "Repo", href: "https://github.com/ezraweng21/TEPHI" }],

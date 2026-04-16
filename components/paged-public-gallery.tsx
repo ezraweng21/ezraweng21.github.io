@@ -3,12 +3,14 @@
 import Image from "next/image";
 import { useMemo, useState } from "react";
 
+import { ArchiveLightbox } from "@/components/archive-lightbox";
 import type { PublicGalleryImage } from "@/lib/public-gallery";
 
 type PagedPublicGalleryProps = {
   images: PublicGalleryImage[];
   placeholderCount?: number;
   perPage?: number;
+  variant?: "nature" | "photography";
 };
 
 const DEFAULT_PLACEHOLDERS = Array.from({ length: 60 }).map((_, index) => ({
@@ -21,8 +23,10 @@ export function PagedPublicGallery({
   images,
   placeholderCount = 60,
   perPage = 24,
+  variant = "nature",
 }: PagedPublicGalleryProps) {
   const [page, setPage] = useState(1);
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const items = images.length
     ? images
     : DEFAULT_PLACEHOLDERS.slice(0, placeholderCount);
@@ -33,11 +37,47 @@ export function PagedPublicGallery({
     return items.slice(start, start + perPage);
   }, [items, page, perPage]);
 
+  const selectedImage =
+    selectedIndex !== null && selectedIndex >= 0 && selectedIndex < items.length
+      ? items[selectedIndex]
+      : null;
+
+  function openImageByName(name: string) {
+    const index = items.findIndex((image) => image.name === name && image.src);
+
+    if (index >= 0) {
+      setSelectedIndex(index);
+    }
+  }
+
+  function moveSelection(direction: -1 | 1) {
+    if (selectedIndex === null) {
+      return;
+    }
+
+    const sourceIndex = selectedIndex;
+    const total = items.length;
+
+    for (let offset = 1; offset <= total; offset += 1) {
+      const nextIndex = (sourceIndex + direction * offset + total) % total;
+      if (items[nextIndex]?.src) {
+        setSelectedIndex(nextIndex);
+        return;
+      }
+    }
+  }
+
   return (
-    <div>
-      <div className="compact-gallery-grid">
+    <div className={`paged-gallery-shell paged-gallery-shell-${variant}`}>
+      <div className={`compact-gallery-grid compact-gallery-grid-${variant}`}>
         {visibleItems.map((image) => (
-          <figure key={image.name} className="compact-gallery-item">
+          <button
+            key={image.name}
+            type="button"
+            className={`compact-gallery-item compact-gallery-button compact-gallery-item-${variant}`}
+            onClick={() => openImageByName(image.name)}
+            disabled={!image.src}
+          >
             {image.src ? (
               <div className="compact-gallery-frame">
                 <Image
@@ -53,7 +93,7 @@ export function PagedPublicGallery({
                 <span className="page-meta">{image.alt}</span>
               </div>
             )}
-          </figure>
+          </button>
         ))}
       </div>
 
@@ -82,6 +122,17 @@ export function PagedPublicGallery({
           </button>
         </div>
       </div>
+
+      {selectedImage?.src ? (
+        <ArchiveLightbox
+          src={selectedImage.src}
+          alt={selectedImage.alt}
+          caption={selectedImage.alt}
+          onClose={() => setSelectedIndex(null)}
+          onPrevious={() => moveSelection(-1)}
+          onNext={() => moveSelection(1)}
+        />
+      ) : null}
     </div>
   );
 }
