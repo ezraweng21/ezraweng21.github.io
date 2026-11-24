@@ -27,7 +27,7 @@ export const portfolioItems: PortfolioItem[] = [
     summary:
       "This dashboard and data pipeline model operational strain across public city systems.",
     role: "Developer",
-    timeframe: "2026-present",
+    timeframe: "2026",
     href: "/projects/municipal-operational-surveillance-dashboard",
     theme: "civic",
   },

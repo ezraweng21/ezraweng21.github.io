@@ -82,9 +82,19 @@ body { font-family:var(--folio-type); background:#faf7f0; color:#342e28 }
 .experience-cutout svg { width:46% }
 .work-links { display:flex; flex-wrap:wrap; gap:1rem; font-size:.9rem }
 .work-links:not(:empty) { margin-top:.55rem }
-.project-register .dated-entry { align-items:center; scroll-margin-top:2rem }
+.project-register .dated-entry { align-items:start; scroll-margin-top:2rem; padding-block:clamp(1.45rem,3.3vw,2.15rem) }
+.project-section + .project-section,.folio.experience-list > .folio-section { margin-top:clamp(2.25rem,6vw,4rem) }
+.project-section > h2,.folio.experience-list > .folio-section > h2 { border-top:2px solid #92634d; padding-block:1.15rem .65rem; margin:0 }
+.folio.experience-list > .folio-section { padding-top:0; border-top:0 }
+.project-section .dated-entry:first-child { border-top:0 }
+.project-section p { margin-top:.7rem }
+.output-group { padding-block:.8rem }
+.output-group h3 { font-size:1.1rem }
+.output-group ul { list-style:disc outside; padding-inline-start:1.3rem; margin-top:.4rem }
+.output-group li + li { margin-top:.35rem }
+.output-group li::marker { color:#903a20 }
 .project-line { display:flex; align-items:baseline; justify-content:space-between; flex-wrap:wrap; gap:.25rem 1rem }
-.project-line h2 { margin:0; font-size:1.2rem; line-height:1.35 }
+.project-line h3 { margin:0; font-size:1.2rem; line-height:1.35 }
 .experience-cutout img { width:100%; height:100%; object-fit:cover }
 .experience-list article:nth-of-type(even) .experience-cutout { background:#e2e4d8; color:#666e53 }
 @media(max-width:600px){.home-profile .home-spread{grid-template-columns:1fr}}

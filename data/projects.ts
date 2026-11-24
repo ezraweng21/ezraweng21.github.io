@@ -1,3 +1,5 @@
+import { wbeBenchTitle } from "./research-titles";
+
 export type ProjectSection = {
   title: string;
   body: string;
@@ -53,9 +55,8 @@ export type ProjectEntry = {
 export const projects: ProjectEntry[] = [
   {
     group: "Research",
-    slug: "wbe-bench", title: "WBE-Bench: forecasting wastewater trends", category: "Independent research",
-    shortSummary: "I built a benchmark for next-week wastewater forecasts using data from 191 U.S. sites.",
-    outcome: "My first-author paper is published in IEEE Xplore. I was accepted to present the work at IEEE BIBM 2026.",
+    slug: "wbe-bench", title: wbeBenchTitle, category: "Independent research",
+    shortSummary: "This study compares nine model configurations for predicting the following week's wastewater concentrations for five pathogens. Using public WastewaterSCAN records from 191 U.S. sites, the authors evaluated forecasts against the final 183 days of observations. Linear regression models had the lowest mean absolute error for three pathogens; neural models ranked first for the other two.",
     summary: "How well can a model forecast next week's wastewater measurements? I brought records from 191 U.S. sites into a common benchmark so that different forecasting approaches could be evaluated on the same task.",
     role: "First author", timeframe: "2026", status: "Done", stack: ["Forecast evaluation", "Longitudinal data analysis"],
     tags: ["research", "public health"], theme: "wastewater", motifLabel: "Forecasts", motifHint: "",
@@ -64,25 +65,33 @@ export const projects: ProjectEntry[] = [
   },
   {
     group: "Research",
-    slug: "lupus-nephritis", title: "Mapping kidney signals in lupus nephritis", category: "Computational biology",
-    shortSummary: "At the Mohan Lab, I used kidney gene-expression data to investigate which cell types might explain signals measured in lupus nephritis. I built a viewer for candidate kinase genes and contributed figures for a separate urinary biomarker study.",
-    summary: "I contributed to two related studies at the University of Houston: one on kinase activity in kidney tissue and another on the possible cellular sources of urinary biomarkers.",
+    slug: "lupus-nephritis", title: "Spatial Kinome Project", category: "Computational biology",
+    shortSummary: "This Mohan Lab study examines where kinase genes are expressed in kidney tissue in lupus nephritis. An interactive viewer places candidate genes in their tissue context so researchers can compare expression across kidney cell types.",
+    summary: "I mapped candidate kinase genes across kidney cell types in lupus nephritis.",
     role: "Student researcher", timeframe: "2026", status: "Ongoing", stack: ["R", "Spatial transcriptomics"],
     tags: ["research", "biology"], theme: "biology", motifLabel: "Kidney tissue", motifHint: "",
     media: { alt: "Kidney research project cover", label: "Spatial analysis" }, notes: [],
-    sections: [{ title: "Spatial kinome", body: "I built a viewer for exploring candidate kinase genes across kidney cell types and presented the project at the lab's final summer internship presentation." },
-      { title: "Urinary biomarkers", body: "I worked on cell-source mapping, expression analyses, and figures for a separate biomarker study." }],
+    sections: [{ title: "Spatial kinome", body: "I presented the viewer and spatial analysis at the lab's final summer internship presentation." }],
   },
   {
     group: "Research",
-    slug: "genelab-spaceflight", title: "Plant stress during suborbital spaceflight", category: "NASA GeneLab for High Schools",
-    shortSummary: "Our four-person NASA GeneLab team analyzed Arabidopsis gene-expression data from suborbital spaceflight and proposed a follow-up experiment on heat stress.",
-    outcome: "We were one of three capstone finalist teams. Our poster was accepted for ASGSR 2026, where I am presenting with a fully funded conference trip.",
+    slug: "urinary-biomarkers", title: "Urinary Biomarkers Project", category: "Computational biology",
+    shortSummary: "This Mohan Lab study investigates which kidney cells may contribute to biomarker signals detected in urine in lupus nephritis. It compares the genes associated with those biomarkers across single-cell and spatial kidney datasets to identify plausible cellular sources.",
+    summary: "I used kidney gene-expression data to investigate the cellular origins of urinary biomarkers.",
+    role: "Student researcher", timeframe: "2026", status: "Ongoing", stack: ["R", "Single-cell analysis", "Spatial transcriptomics"],
+    tags: ["research", "biology"], theme: "biology", motifLabel: "Urinary biomarkers", motifHint: "",
+    media: { alt: "Urinary biomarker study cover", label: "Biomarker analysis" }, notes: [], sections: [],
+  },
+  {
+    group: "Research",
+    slug: "genelab-spaceflight", title: "Plant Stress Responses During Suborbital Spaceflight", category: "NASA GeneLab for High Schools",
+    shortSummary: "This NASA GeneLab for High Schools capstone examines gene expression in Arabidopsis plants exposed to suborbital spaceflight. The four-member team analyzed NASA dataset OSDR-624 and used the observed patterns to propose a follow-up experiment on heat stress.",
+    outcome: "GeneLab selected the team as one of three capstone finalists.",
     summary: "Using NASA's OSDR-624 dataset, our team examined how Arabidopsis responded to suborbital spaceflight. We used the data to develop a hypothesis about heat stress and propose a follow-up experiment.",
     role: "Student researcher on a four-person team", timeframe: "2026", status: "Ongoing", stack: ["RNA-seq analysis", "Experimental design"],
     tags: ["research", "biology"], theme: "nature", motifLabel: "Space biology", motifHint: "",
     media: { alt: "GeneLab capstone project cover", label: "GeneLab" }, notes: [],
-    sections: [{ title: "Capstone and conference", body: "We were one of the top three GeneLab capstone finalist teams. Our poster was accepted for ASGSR 2026, and I am presenting it at the conference with a fully funded trip." }],
+    sections: [{ title: "Capstone and conference", body: "We were one of the top three GeneLab capstone finalist teams. ASGSR 2026 accepted our poster and abstract, and I'm scheduled to present the poster with full travel funding." }],
   },
   {
     group: "Research",
@@ -91,8 +100,7 @@ export const projects: ProjectEntry[] = [
     category: "Computational Biology",
     summary:
       "Wastewater-based norovirus genomic surveillance project using multi-year data from 16 sites across Texas. The work tracks genotype dynamics, temporal patterns, and site-level variation to study viral transmission outside clinical testing.",
-    shortSummary:
-      "This project studies genotype dynamics and temporal change in multi-year norovirus wastewater data from sites across Texas.",
+    shortSummary: "This R Shiny dashboard tracks changes in norovirus genotypes across Texas wastewater monitoring sites. Researchers can follow a genotype's relative abundance over time at one site or compare its trajectory across sites, revealing differences that a statewide trend can obscure.",
     role: "Developer + Data Analyst",
     stack: ["R", "R Markdown", "Shiny", "ggplot2", "dplyr"],
     timeframe: "2025-present",
@@ -138,12 +146,11 @@ export const projects: ProjectEntry[] = [
     category: "Civic Data",
     summary:
       "Datathon project built from raw public datasets through cleaning, transformation, and visualization. The dashboard models operational strain across city systems and turns public safety and service data into a more interpretable decision-support view.",
-    shortSummary:
-      "Our team built a dashboard to help Sugar Land examine service and public-safety demands.",
-    outcome: "First place among 12 teams at the City of Sugar Land Datathon.",
+    shortSummary: "At the City of Sugar Land Datathon, my teammates and I used public safety and municipal service records to examine demand on city services. We cleaned the datasets, built an index of operational strain, and made it explorable in an R Shiny dashboard.",
+    outcome: "Our team placed first out of 12.",
     role: "Developer",
     stack: ["Data pipelines", "Visualization", "Dashboard development"],
-    timeframe: "February 2026-present",
+    timeframe: "2026",
     status: "Ongoing",
     tags: ["cs", "data", "dashboard", "community", "academic"],
     theme: "civic",
@@ -197,8 +204,7 @@ export const projects: ProjectEntry[] = [
     category: "Personal Site",
     summary:
       "Custom portfolio site built to hold projects, activities, and personal work without collapsing into a single landing page. The site uses reusable data structures, dynamic project pages, and a more editorial multi-page layout that can keep evolving over time.",
-    shortSummary:
-      "I designed and built this portfolio in Next.js and TypeScript to document my research, software, and photography.",
+    shortSummary: "I built this site in Next.js and TypeScript to keep my research, software, and photography in one place. I separated the project records from the page layout so I can add a paper or demo without having to redesign the list.",
     role: "Frontend architecture + design",
     stack: ["Next.js", "TypeScript", "Tailwind CSS"],
     timeframe: "2026",
@@ -359,8 +365,7 @@ export const projects: ProjectEntry[] = [
     category: "Nonprofit / Community",
     summary:
       "CareForBrains is a youth-led mental health nonprofit focused on education, advocacy, community, and access. I helped build its public website, chapter systems, outreach, blog, podcast, and broader operations.",
-    shortSummary:
-      "CareForBrains connects student-led chapters with public resources, writing, podcasting, and community outreach.",
+    shortSummary: "We use the CareForBrains website to connect students with local chapters and volunteer opportunities. We also publish our blog and podcast there, so someone who can't attend a chapter event can still take part in the conversation about mental health.",
     role: "Co-Founder & COO",
     stack: ["Nonprofit operations", "Website", "Blog", "Podcast", "Community growth"],
     timeframe: "May 2024-present",
@@ -416,8 +421,7 @@ export const projects: ProjectEntry[] = [
     category: "Nature Archive",
     summary:
       "This ongoing nature archive combines field notes, photography, citizen-science observations, and image-based documentation. It connects my photography with iNaturalist records and the details I notice outdoors.",
-    shortSummary:
-      "This archive connects my photography, field notes, and iNaturalist observations.",
+    shortSummary: "I keep my photographs and my iNaturalist observations together here because they record different parts of a field outing. The galleries are a place to look at the images themselves; the observation records document what I saw and how it was identified.",
     role: "Photography, documentation, and archive building",
     stack: ["Photography", "iNaturalist", "Gallery system"],
     timeframe: "Ongoing",
