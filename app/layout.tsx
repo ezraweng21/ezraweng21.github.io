@@ -2,12 +2,19 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
 import "./globals.css";
+import "./design-system.css";
+import "./section-frames.css";
+import "./folio.css";
+import { SiteFooter } from "@/components/site-footer";
 import { SiteNavbar } from "@/components/site-navbar";
 
 export const metadata: Metadata = {
-  title: "Ezra Portfolio",
+  title: {
+    default: "Ezra Weng",
+    template: "%s | Ezra Weng",
+  },
   description:
-    "Personal and professional portfolio with a strong technical and project focus.",
+    "Research, technical projects, leadership, and field notes by Ezra Weng.",
 };
 
 export default function RootLayout({
@@ -18,11 +25,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <div>
+        <a href="#main-content" className="skip-link">
+          Skip to content
+        </a>
+        <div className="site-frame">
           <SiteNavbar />
-          <main className="mx-auto flex min-h-[calc(100vh-14rem)] max-w-content flex-col gap-0 px-4 pb-6 pt-6 sm:px-6 lg:px-8">
-            {children}
-          </main>
+          <div className="site-column">
+            <main id="main-content" className="site-main">
+              {children}
+            </main>
+            <SiteFooter />
+          </div>
         </div>
       </body>
     </html>

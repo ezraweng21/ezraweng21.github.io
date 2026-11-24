@@ -1,0 +1,91 @@
+:root { --folio-type: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; --reading: var(--folio-type); --ui: var(--folio-type) }
+body { font-family:var(--folio-type); background:#faf7f0; color:#342e28 }
+.site-frame { display:block; background:#faf7f0 }
+.site-main,.folio-nav,.site-footer-inner { width:min(100%,64rem); margin:auto; padding-inline:clamp(1.25rem,5vw,4rem) }
+.site-main { padding-block:clamp(3rem,7vw,6rem); min-height:calc(100svh - 10rem) }
+.folio-nav { display:flex; align-items:center; justify-content:space-between; width:100%; min-height:3.75rem; padding-inline:clamp(1.25rem,4vw,4rem); border-bottom:1px solid #ded5c8; background:#fcfaf6; gap:.75rem }
+.folio-nav nav,.photo-foot { display:flex; flex-wrap:wrap; gap:clamp(.7rem,3vw,2rem) }
+.folio-nav a,.folio small,.photo-foot,.folio .ink-link { font: 1rem/1.5 var(--folio-type) }
+.folio-nav .signature { font:600 1.5rem/1.3 var(--folio-type); color:#352c26 }
+.folio-nav nav a { display:inline-flex; align-items:center; min-height:2.75rem }
+@media(max-width:650px){
+  .folio-nav { align-items:flex-start; flex-direction:column; gap:0; padding-block:.75rem .2rem }
+  .folio-nav nav { width:100%; justify-content:space-between; column-gap:.65rem }
+}
+.folio-nav nav a[aria-current],.folio-nav nav a:hover { color:#913b20; text-decoration:underline; text-underline-offset:.4em }
+.folio { font:1rem/1.7 var(--folio-type); color:#352c26 }
+.folio h1,.folio h2,.folio h3,.folio .albums strong { font-family:var(--folio-type); font-weight:600; color:inherit }
+.folio h1 { font-size:clamp(1.875rem,4vw,2.25rem); letter-spacing:-.02em; line-height:1.2; margin:0 0 2rem }
+.folio h1 span,.folio a { color:#903a20 }
+.folio a { text-decoration:underline; text-underline-offset:.2em }
+.folio h2 { font-size:clamp(1.4rem,3vw,1.75rem); line-height:1.3 }
+.folio h3 { font-size:1.3rem }
+.folio .lead { max-width:74ch; margin:0 0 2rem; font-size:1rem }
+.home-spread { display:grid; grid-template-columns:1.25fr 1fr; gap:2rem; align-items:center; padding-block:2rem }
+.portrait-print { margin:0 .6rem; padding:.7rem .7rem 2rem; background:#fffdf9; border:1px solid #d9cfc1; transform:rotate(2deg); box-shadow:2px 5px 8px #50371810 }
+.portrait-paper,.portrait-print img { aspect-ratio:4/5; width:100%; object-fit:cover }
+.portrait-paper { display:grid; place-items:center; background:linear-gradient(152deg,#efdbc2,#e2b995); color:#663c28; font-style:italic }
+.work-index article,.folio-section,.albums section { border-top:1px solid #cfc5b8 }
+.work-index article,.folio-section { padding-block:1.6rem }
+.work-index h2 { margin:.35rem 0 }
+.work-index h2 a { color:inherit; text-decoration:none }
+.work-index h2 a:hover { color:#903a20; text-decoration:underline }
+.work-index p,.dated-entry p { margin:.45rem 0 0; max-width:65ch }
+.folio small { color:#705242 }
+.dated-entry { display:grid; grid-template-columns:minmax(8rem,1fr) 3fr; gap:1rem; padding:1rem 0 }
+.albums button[aria-expanded] { width:100%; display:grid; grid-template-columns:3rem 1fr auto; gap:1.25rem; align-items:center; text-align:left; padding:1rem 0; border:0; background:none; color:inherit; cursor:pointer }
+.albums strong { font-size:clamp(1.4rem,3vw,2rem) }
+.album-swab { width:2.6rem; height:3rem; border:3px solid white; outline:1px solid #cfc5b8; transform:rotate(-4deg); background:#acb29b }
+.swab-1 { background:#cf9d83; transform:rotate(4deg) }
+.swab-2 { background:#92aaaf }
+.swab-3 { background:#c4ac81; transform:rotate(2deg) }
+.albums .archive-album { margin:0; padding:1rem 0; border:0 }
+.photo-foot { border-top:1px solid #cfc5b8; padding-top:1.6rem }
+.site-footer { background:transparent }
+.contact-service { display:inline-flex; align-items:center; gap:.55rem }
+.contact-service img { flex:none }
+.contact-list .contact-row { align-items:center }
+.contact-page .email-button,.social-buttons a { display:inline-flex; align-items:center; min-height:2.85rem; gap:.7rem; padding:.6rem 1rem; border-radius:.35rem; text-decoration:none }
+.contact-page .email-button { margin-bottom:2.5rem; background:#843d24; color:white }
+.contact-page .email-button:hover { background:#66301e }
+.social-buttons { display:flex; flex-wrap:wrap; gap:.65rem; padding:0; margin:1rem 0 0; list-style:none }
+.social-buttons a { border:1px solid #baac9e; color:#3f332b; background:#fcfaf6 }
+.social-buttons a:hover,.social-buttons a:focus-visible { color:#843d24; border-color:currentColor }
+.home-profile .home-spread { grid-template-columns:minmax(0,1.5fr) minmax(0,.85fr); padding-top:0; margin-bottom:clamp(2.5rem,6vw,5rem) }
+.home-profile .lead { margin:.75rem 0 0; font-size:clamp(1.1rem,2vw,1.3rem) }
+.experience-list > h2 { margin:0 0 1rem }
+.experience-list article + article { border-top:1px solid #e2d9cb }
+.honors-list { list-style:disc outside; margin:1rem 0 0; padding-inline-start:1.3rem; max-width:68ch }
+.honors-list li { padding-inline-start:.3rem; line-height:1.55 }
+.honors-list li + li { margin-top:.65rem }
+.honors-list li::marker { color:#903a20 }
+.school-activities { margin:.35rem 0 0; padding-inline-start:1.2rem; list-style:disc outside }
+.school-activities li + li { margin-top:.2rem }
+.experience-list article > small { padding-top:.2rem }
+.site-main:has(.folio) { width:min(100%,50rem); padding:2.5rem 1.25rem 4rem }
+.portrait-intro { padding-bottom:2.5rem }
+.portrait-rule { display:flex; justify-content:center; margin:0 auto 1.875rem }
+.portrait-medallion { width:clamp(10rem,30vw,15.5rem); aspect-ratio:1; margin:0; border:3px solid #e3d9cb; border-radius:50%; overflow:hidden; box-shadow:0 4px 12px #40352614 }
+.portrait-monogram,.portrait-medallion img { height:100%; width:100%; border-radius:inherit; object-fit:cover }
+.portrait-monogram { display:grid; place-items:center; font:italic clamp(3rem,6vw,5rem) Georgia,serif; color:#834125; letter-spacing:-.04em; background:repeating-linear-gradient(130deg,transparent 0 4px,#a56b4510 4px 5px),linear-gradient(135deg,#f2dfc6,#dec0a2) }
+.portrait-intro h1 { text-align:center; margin:0 0 2.5rem }
+.portrait-intro:has(.profile-quote) h1 { margin-bottom:.75rem }
+.profile-quote { text-align:center; margin:0 auto 2.75rem; max-width:44ch }
+.profile-quote blockquote { margin:0; font:italic 1.1rem/1.5 Georgia,serif; color:#6e4935 }
+.profile-quote figcaption { margin-top:.3rem; font-size:.875rem; color:#65594e }
+.interest-note { margin-top:1rem }
+.portrait-intro h2,.experience-list > h2 { margin:0 0 1rem; padding-bottom:.55rem; border-bottom:2px solid #92634d }
+.experience-list.folio-section { border-top:0; padding-top:0 }
+.home-profile .portrait-intro .lead { margin:0; max-width:74ch; font-size:1rem; text-wrap:pretty }
+.experience-list .dated-entry { grid-template-columns:clamp(3.5rem,9vw,5rem) 1fr; align-items:start; gap:clamp(1rem,3vw,2rem); padding-block:1.4rem }
+.experience-cutout { margin:0; aspect-ratio:1; display:grid; place-items:center; color:#926748; background:#ebddcb; border-radius:20% 20% 20% 4%; overflow:hidden }
+.experience-cutout svg { width:46% }
+.work-links { display:flex; flex-wrap:wrap; gap:1rem; font-size:.9rem }
+.work-links:not(:empty) { margin-top:.55rem }
+.project-register .dated-entry { align-items:center; scroll-margin-top:2rem }
+.project-line { display:flex; align-items:baseline; justify-content:space-between; flex-wrap:wrap; gap:.25rem 1rem }
+.project-line h2 { margin:0; font-size:1.2rem; line-height:1.35 }
+.experience-cutout img { width:100%; height:100%; object-fit:cover }
+.experience-list article:nth-of-type(even) .experience-cutout { background:#e2e4d8; color:#666e53 }
+@media(max-width:600px){.home-profile .home-spread{grid-template-columns:1fr}}
+@media(max-width:600px){.home-spread{grid-template-columns:1fr;padding:0}.portrait-print{width:min(84%,20rem);margin:1rem auto}.dated-entry{grid-template-columns:1fr;gap:.15rem}.folio-nav .signature{font-size:1.05rem}.folio-nav nav a{font-size:.8rem}}

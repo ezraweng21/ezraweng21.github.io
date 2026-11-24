@@ -5,6 +5,11 @@ const compat = new FlatCompat({
   baseDirectory: import.meta.dirname,
 });
 
-const config = [...compat.config(nextVitals)];
+const config = [
+  {
+    ignores: [".next/**", ".next-production/**", ".next-stale-*/**", "node_modules/**"],
+  },
+  ...compat.config(nextVitals),
+];
 
 export default config;

@@ -1,0 +1,46 @@
+/* Section frames share geometry; color signals the content's role. */
+.site-main :is(.about-personal-intro, .about-interests, .projects-selected, .future-projects, .contact-list) {
+  --frame-line: #b78b73;
+  --frame-inset: #dcc0ae;
+  --frame-surface: #f4e7dc;
+  position: relative;
+  padding: clamp(1.5rem, 3vw, 2.75rem);
+  border: 1px solid var(--frame-line);
+  border-radius: 8px;
+  background: var(--frame-surface);
+  min-width: 0;
+}
+.site-main :is(.about-personal-intro, .about-interests, .projects-selected, .future-projects, .contact-list)::after {
+  content: "";
+  position: absolute;
+  inset: 7px;
+  border: 1px solid var(--frame-inset);
+  border-radius: 3px;
+  pointer-events: none;
+}
+.site-main .about-personal-intro { grid-template-columns: minmax(0, 1fr) 15rem; gap: 2rem; }
+.site-main .about-interests { --frame-line: #8b9e80; --frame-inset: #c0ceb6; --frame-surface: #eaf0e4; }
+.site-main .projects-selected { --frame-line: #8ba3b0; --frame-inset: #c1d0d7; --frame-surface: #eaf0f3; }
+.site-main .future-projects { --frame-line: #ae9569; --frame-inset: #d5c5a5; --frame-surface: #f3eddf; }
+.site-main .contact-list { --frame-line: #8ba3b0; --frame-inset: #c1d0d7; --frame-surface: #edf1f2; }
+.site-main .about-interest { padding-top: 1.5rem; border-top: 1px solid #bdcbb2; }
+.site-main .about-interest-image { outline: 1px solid #8b9e80; outline-offset: -7px; border: 7px solid #f8faf4; }
+.site-main .about-interest:nth-of-type(2) .about-interest-image { outline-color: #8ba3b0; }
+.site-main .about-interest:nth-of-type(3) .about-interest-image { outline-color: #ae9569; }
+.site-main .projects-archive { padding-top: 2rem; border-top: 1px solid #8ba3b0; }
+.site-main .chronology-year { padding: 1.5rem; border: 1px solid #b5c0ad; background: #f0f3eb; }
+.site-main .chronology-year:nth-child(even) { background: #edf1f3; border-color: #b6c4cd; }
+.site-main .contact-row { padding-inline: .5rem; border-color: #c1d0d7; }
+.site-main .contact-row strong { overflow-wrap: anywhere; min-width: 0; }
+.site-main .home-personal-layout .interest-worlds article { border: 1px solid #a7b6b8; outline: 1px solid #c5d0d1; outline-offset: -7px; padding: 1.75rem; }
+.site-main .home-personal-layout .interest-worlds .interest-world-1 { border-color: #93a685; outline-color: #bbcaae; }
+.site-main .home-personal-layout .interest-worlds .interest-world-2 { border-color: #ac9367; outline-color: #d3c09c; }
+@media (max-width: 1100px) {
+  .site-main .about-personal-intro { grid-template-columns: 1fr; }
+  .site-main .about-portrait-montage { width: min(16rem, 100%); margin-inline: auto; }
+}
+@media (max-width: 600px) {
+  .site-main :is(.about-personal-intro, .about-interests, .projects-selected, .future-projects, .contact-list) { padding: 1.35rem; }
+  .site-main .chronology-year { padding: 1.25rem; }
+  .site-main .about-interest { grid-template-columns: 1fr; }
+}

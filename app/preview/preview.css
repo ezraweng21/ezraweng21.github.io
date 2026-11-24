@@ -1,0 +1,45 @@
+.simple-preview { max-width: 56rem; margin: 0 auto; font-family: var(--ui); font-size: 1rem; line-height: 1.65; }
+.preview-comparison { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem 1.5rem; margin-bottom: 3rem; font-size: .8rem; color: var(--muted); }
+.preview-comparison a { color: var(--orange-dark); }
+.preview-introduction { display: grid; grid-template-columns: minmax(0, 1fr) 10rem; align-items: center; gap: 3rem; }
+.preview-introduction h1 { font-family: var(--reading); font-size: clamp(2.7rem, 5vw, 4rem); font-weight: 500; line-height: 1.12; letter-spacing: -.03em; }
+.preview-introduction h1 > span { color: var(--orange); }
+.preview-intro-placeholder { max-width: 42ch; margin: 1.2rem 0 1.35rem; color: var(--muted); }
+.preview-text-link { display: inline-block; color: var(--orange-dark); font-size: .85rem; line-height: 1.6; padding: .45rem 0; text-underline-offset: .3em; }
+.preview-text-link:hover, .preview-comparison a:hover { text-decoration: underline; }
+.preview-text-link > span { display: inline-block; margin-left: .35rem; transition: transform 180ms ease-out; }
+.preview-text-link:hover > span { transform: translateX(3px); }
+.preview-portrait { aspect-ratio: 4 / 5; background: #e4c5ae; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 1.2rem; color: #66381f; border-radius: 4px; font-size: .8rem; }
+.preview-portrait-initials { font-family: var(--reading); font-size: 3.5rem; line-height: 1; letter-spacing: -.025em; }
+.preview-section { margin-top: 3.5rem; }
+.preview-section-heading { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: .5rem 1rem; margin-bottom: 1.25rem; }
+.preview-section-heading h2 { font-family: var(--reading); font-size: 1.8rem; font-weight: 500; letter-spacing: -.02em; }
+.preview-photo-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+.preview-photo-slot { min-width: 0; margin: 0; }
+.preview-photo-frame { position: relative; aspect-ratio: 4 / 5; display: grid; place-items: center; background: #e0dbd3; border-radius: 3px; overflow: hidden; color: #514a40; font-size: .85rem; }
+.preview-photo-frame-1 { background: #d9ddd0; color: #49513f; }
+.preview-photo-frame-2 { background: #e8d2c1; color: #624632; }
+.preview-photo-frame img { object-fit: cover; }
+.preview-photo-slot figcaption { margin-top: .6rem; color: var(--muted); font-size: .83rem; }
+.preview-project-placeholder { display: flex; align-items: center; gap: 1.5rem; padding: 1.25rem 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.preview-project-image { width: 8rem; aspect-ratio: 4 / 3; display: grid; place-items: center; background: #e0dbd3; color: #514a40; flex-shrink: 0; font-size: .8rem; border-radius: 3px; }
+.preview-project-placeholder h3 { font-size: 1.1rem; font-weight: 600; }
+.preview-project-placeholder p { max-width: 48ch; margin-top: .45rem; color: var(--muted); font-size: .92rem; }
+.site-navigation:has(.preview-subnav-link) .site-nav-link { font-family: var(--ui); font-size: .95rem; }
+.preview-subnav-link { padding-left: .9rem; font-family: var(--ui); font-size: .8rem; color: var(--muted); }
+.preview-subnav-link:hover { color: var(--orange-dark); text-decoration: underline; text-underline-offset: .25em; }
+@media (min-width: 62rem) { .preview-subnav-link { padding-top: .25rem; padding-bottom: .4rem; } }
+@media (max-width: 62rem) { .site-nav-links:has(.preview-subnav-link) { display: flex; flex-wrap: wrap; gap: .2rem .7rem; } .preview-subnav-link { padding: .55rem .65rem; } }
+@media (max-width: 600px) {
+  .preview-comparison { margin-bottom: 2rem; }
+  .preview-introduction { grid-template-columns: minmax(0, 1fr) 5rem; gap: 1rem; align-items: start; }
+  .preview-introduction h1 { font-size: 2.5rem; }
+  .preview-portrait { margin-top: .3rem; font-size: .65rem; gap: .65rem; }
+  .preview-portrait-initials { font-size: 2rem; }
+  .preview-photo-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  .preview-photo-frame { aspect-ratio: 4 / 3; }
+  .preview-section { margin-top: 2.5rem; }
+  .preview-project-placeholder { align-items: start; gap: 1rem; }
+  .preview-project-image { width: 5rem; font-size: .7rem; }
+}
+@media (prefers-reduced-motion: reduce) { .preview-text-link > span { transition: none; } }

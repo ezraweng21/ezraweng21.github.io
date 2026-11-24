@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Ezra Weng | Portfolio study</title>
+<style>
+  * { box-sizing: border-box }
+  html { color: #332e28; background: #faf7f0; font: 18px/1.55 Georgia,serif }
+  body { max-width: 55rem; padding: 0 clamp(1.25rem,5vw,4rem); margin: auto }
+  header,nav { display:flex; align-items:center; justify-content:space-between; gap:1.2rem }
+  header { min-height:5rem; border-bottom:1px solid #cfc6b7 }
+  header a,footer { font: .84rem/1.5 Verdana,sans-serif }
+  a { color:#923b1c; text-underline-offset:.25em }
+  header a:not(:hover):not(:focus-visible) { text-decoration:none }
+  a:focus-visible { outline:2px solid currentColor; outline-offset:4px }
+  .name { color:inherit; font:bold 1rem Georgia,serif }
+  main { padding:clamp(3rem,9vw,7rem) 0 }
+  .home { display:grid; grid-template-columns: 3fr 2fr; gap:2rem; align-items:center }
+  h1 { font-size:clamp(3rem,8vw,5.5rem); line-height:1; font-weight:normal; letter-spacing:-.04em; margin:0 0 1.25rem }
+  p { max-width:44ch }
+  figure { margin:0; aspect-ratio:4/5; background:#ecd8bd; border:.6rem solid white; outline:1px solid #d3caba; transform:rotate(2deg); display:grid; place-items:center; color:#78412d }
+  figure span { border:1px dashed #aa8061; padding:.5em 1em; font-style:italic }
+  article { border-top:1px solid #cfc6b7; margin-top:2.5rem; padding-top:1.4rem }
+  h2 { font-size:1.65rem; line-height:1.2; font-weight:normal }
+  footer { border-top:1px solid #cfc6b7; padding:1rem 0; color:#655c51 }
+  #projects { display:none }
+  #projects:target { display:block }
+  #projects:target + .home { display:none }
+  @media(max-width:580px){.home{grid-template-columns:1fr}figure{width:65%;margin:1rem auto}nav{gap:.75rem}}
+</style>
+<header><a class="name" href="study.html">Ezra Weng</a><nav aria-label="Portfolio"><a href="#projects">Projects</a><a href="/photography">Photos</a><a href="/about">About</a></nav></header>
+<main>
+  <section id="projects" aria-labelledby="project-heading" tabindex="-1">
+    <h1 id="project-heading">Projects</h1>
+    <article><h2><a href="/projects/tephi-wastewater-dashboard">Wastewater Viral Surveillance Dashboard</a></h2>
+    <p>This dashboard follows how norovirus genotypes change over time across 16 wastewater sampling sites in Texas.</p></article>
+  </section>
+  <section class="home" aria-labelledby="home-heading">
+    <div><h1 id="home-heading">Ezra Weng</h1><p>[A short introduction in your own words.]</p><p><a href="#projects">See my projects &rarr;</a></p></div>
+    <figure aria-label="Space for Ezra's portrait"><span>Portrait goes here</span></figure>
+  </section>
+</main>
+<footer><a href="/">Back to the current portfolio</a></footer>
+</html>

@@ -21,9 +21,16 @@ export type ProjectTheme =
   | "portfolio"
   | "biology"
   | "cs"
-  | "nature";
+  | "nature"
+  | "journal"
+  | "timeline"
+  | "citizen";
+
+export type ProjectStatus = "Ongoing" | "Planned" | "Done";
 
 export type ProjectEntry = {
+  group: "Research" | "Software & community" | "Personal projects";
+  outcome?: string;
   slug: string;
   title: string;
   category: string;
@@ -32,7 +39,8 @@ export type ProjectEntry = {
   role: string;
   stack: string[];
   timeframe: string;
-  status: string;
+  status: ProjectStatus;
+  tags: string[];
   theme: ProjectTheme;
   motifLabel: string;
   motifHint: string;
@@ -44,17 +52,52 @@ export type ProjectEntry = {
 
 export const projects: ProjectEntry[] = [
   {
+    group: "Research",
+    slug: "wbe-bench", title: "WBE-Bench: forecasting wastewater trends", category: "Independent research",
+    shortSummary: "I built a benchmark for next-week wastewater forecasts using data from 191 U.S. sites.",
+    outcome: "My first-author paper is published in IEEE Xplore. I was accepted to present the work at IEEE BIBM 2026.",
+    summary: "How well can a model forecast next week's wastewater measurements? I brought records from 191 U.S. sites into a common benchmark so that different forecasting approaches could be evaluated on the same task.",
+    role: "First author", timeframe: "2026", status: "Done", stack: ["Forecast evaluation", "Longitudinal data analysis"],
+    tags: ["research", "public health"], theme: "wastewater", motifLabel: "Forecasts", motifHint: "",
+    media: { alt: "WBE-Bench project cover", label: "WBE-Bench" }, notes: [],
+    sections: [{ title: "Paper and presentation", body: "My first-author IEEE BIBM 2026 short paper is published in IEEE Xplore. I was also accepted to present the work at the conference." }],
+  },
+  {
+    group: "Research",
+    slug: "lupus-nephritis", title: "Mapping kidney signals in lupus nephritis", category: "Computational biology",
+    shortSummary: "At the Mohan Lab, I used kidney gene-expression data to investigate which cell types might explain signals measured in lupus nephritis. I built a viewer for candidate kinase genes and contributed figures for a separate urinary biomarker study.",
+    summary: "I contributed to two related studies at the University of Houston: one on kinase activity in kidney tissue and another on the possible cellular sources of urinary biomarkers.",
+    role: "Student researcher", timeframe: "2026", status: "Ongoing", stack: ["R", "Spatial transcriptomics"],
+    tags: ["research", "biology"], theme: "biology", motifLabel: "Kidney tissue", motifHint: "",
+    media: { alt: "Kidney research project cover", label: "Spatial analysis" }, notes: [],
+    sections: [{ title: "Spatial kinome", body: "I built a viewer for exploring candidate kinase genes across kidney cell types and presented the project at the lab's final summer internship presentation." },
+      { title: "Urinary biomarkers", body: "I worked on cell-source mapping, expression analyses, and figures for a separate biomarker study." }],
+  },
+  {
+    group: "Research",
+    slug: "genelab-spaceflight", title: "Plant stress during suborbital spaceflight", category: "NASA GeneLab for High Schools",
+    shortSummary: "Our four-person NASA GeneLab team analyzed Arabidopsis gene-expression data from suborbital spaceflight and proposed a follow-up experiment on heat stress.",
+    outcome: "We were one of three capstone finalist teams. Our poster was accepted for ASGSR 2026, where I am presenting with a fully funded conference trip.",
+    summary: "Using NASA's OSDR-624 dataset, our team examined how Arabidopsis responded to suborbital spaceflight. We used the data to develop a hypothesis about heat stress and propose a follow-up experiment.",
+    role: "Student researcher on a four-person team", timeframe: "2026", status: "Ongoing", stack: ["RNA-seq analysis", "Experimental design"],
+    tags: ["research", "biology"], theme: "nature", motifLabel: "Space biology", motifHint: "",
+    media: { alt: "GeneLab capstone project cover", label: "GeneLab" }, notes: [],
+    sections: [{ title: "Capstone and conference", body: "We were one of the top three GeneLab capstone finalist teams. Our poster was accepted for ASGSR 2026, and I am presenting it at the conference with a fully funded trip." }],
+  },
+  {
+    group: "Research",
     slug: "tephi-wastewater-dashboard",
     title: "Wastewater Viral Surveillance Dashboard",
     category: "Computational Biology",
     summary:
       "Wastewater-based norovirus genomic surveillance project using multi-year data from 16 sites across Texas. The work tracks genotype dynamics, temporal patterns, and site-level variation to study viral transmission outside clinical testing.",
     shortSummary:
-      "Multi-year norovirus wastewater surveillance across Texas sites, focused on genotype dynamics and temporal change.",
+      "This project studies genotype dynamics and temporal change in multi-year norovirus wastewater data from sites across Texas.",
     role: "Developer + Data Analyst",
     stack: ["R", "R Markdown", "Shiny", "ggplot2", "dplyr"],
     timeframe: "2025-present",
     status: "Ongoing",
+    tags: ["bio", "public health", "data", "dashboard", "academic"],
     theme: "wastewater",
     motifLabel: "Flow system",
     motifHint: "Use this page for pipeline, dashboard, and signal-tracking material.",
@@ -62,7 +105,7 @@ export const projects: ProjectEntry[] = [
       alt: "Wastewater surveillance dashboard preview",
       label: "Dashboard preview",
       hint:
-        "Add a screenshot showing abundance trends, genotype breakdowns, or site-level dashboard views.",
+        "Abundance trends, genotype breakdowns, or site-level dashboard views belong here.",
     },
     notes: [
       "Tracked genotype-level dynamics such as GII.4 to GII.17 shifts across multiple sites.",
@@ -89,15 +132,20 @@ export const projects: ProjectEntry[] = [
     links: [{ label: "Repo", href: "https://github.com/ezraweng21/TEPHI" }],
   },
   {
+    group: "Software & community",
     slug: "municipal-operational-surveillance-dashboard",
     title: "Municipal Operational Surveillance Dashboard",
     category: "Civic Data",
-    summary: "Add a 2-3 sentence project summary here.",
-    shortSummary: "Add a short one-line card summary here.",
+    summary:
+      "Datathon project built from raw public datasets through cleaning, transformation, and visualization. The dashboard models operational strain across city systems and turns public safety and service data into a more interpretable decision-support view.",
+    shortSummary:
+      "Our team built a dashboard to help Sugar Land examine service and public-safety demands.",
+    outcome: "First place among 12 teams at the City of Sugar Land Datathon.",
     role: "Developer",
     stack: ["Data pipelines", "Visualization", "Dashboard development"],
     timeframe: "February 2026-present",
     status: "Ongoing",
+    tags: ["cs", "data", "dashboard", "community", "academic"],
     theme: "civic",
     motifLabel: "City grid",
     motifHint: "Use this page for system maps, index logic, and dashboard views.",
@@ -105,25 +153,28 @@ export const projects: ProjectEntry[] = [
       alt: "Municipal dashboard preview",
       label: "Project preview",
       hint:
-        "Add a screenshot of the municipal dashboard, urban strain index panels, or core charts.",
+        "Municipal dashboard views, urban strain index panels, or core charts belong here.",
     },
     notes: [
-      "Add one key point here.",
-      "Add one key point here.",
-      "Add one key point here.",
+      "Won the City of Sugar Land Datathon.",
+      "Built an end-to-end pipeline from raw public data to analysis-ready outputs.",
+      "Developed a custom Urban Strain Index for operational stress.",
     ],
     sections: [
       {
         title: "Overview",
-        body: "Add a short overview here.",
+        body:
+          "This project was built around public municipal datasets and focused on converting raw operational data into a more useful analytical dashboard for decision-making.",
       },
       {
         title: "Build Notes",
-        body: "Add implementation notes here.",
+        body:
+          "The work involved cleaning, transformation, comparative analysis, and visualization, with a focus on building an interpretable system rather than a one-off chart set.",
       },
       {
         title: "Details",
-        body: "Add any deeper context, tradeoffs, or results here.",
+        body:
+          "The resulting dashboard and index aimed to surface system stress, allocation needs, and broader operational patterns across public-facing city functions.",
       },
     ],
     links: [
@@ -140,15 +191,19 @@ export const projects: ProjectEntry[] = [
     ],
   },
   {
+    group: "Personal projects",
     slug: "portfolio-site",
     title: "Personal Portfolio Website",
     category: "Personal Site",
-    summary: "Add a 2-3 sentence project summary here.",
-    shortSummary: "Add a short one-line card summary here.",
+    summary:
+      "Custom portfolio site built to hold projects, activities, and personal work without collapsing into a single landing page. The site uses reusable data structures, dynamic project pages, and a more editorial multi-page layout that can keep evolving over time.",
+    shortSummary:
+      "I designed and built this portfolio in Next.js and TypeScript to document my research, software, and photography.",
     role: "Frontend architecture + design",
     stack: ["Next.js", "TypeScript", "Tailwind CSS"],
     timeframe: "2026",
     status: "Ongoing",
+    tags: ["personal", "cs", "design", "web", "portfolio"],
     theme: "portfolio",
     motifLabel: "Page structure",
     motifHint: "Use this page for layout decisions, system notes, and iterative design choices.",
@@ -156,25 +211,28 @@ export const projects: ProjectEntry[] = [
       alt: "Portfolio site preview",
       label: "Site preview",
       hint:
-        "Add a homepage or project-page screenshot once the visuals feel settled.",
+        "Homepage and project-page screenshots belong here.",
     },
     notes: [
-      "Add one key point here.",
-      "Add one key point here.",
-      "Add one key point here.",
+      "Built with reusable project data and dynamic routes.",
+      "Used as both a portfolio and a live design/system project.",
+      "Structured to support future case studies, archives, and media-heavy pages.",
     ],
     sections: [
       {
         title: "Overview",
-        body: "Add a short overview here.",
+        body:
+          "This site is meant to function as a long-term personal and technical home on the web rather than a single landing page or resume clone.",
       },
       {
         title: "Build Notes",
-        body: "Add implementation notes here.",
+        body:
+          "The build emphasizes maintainable components, reusable data, project-specific page treatments, and incremental design changes instead of one-shot redesigns.",
       },
       {
         title: "Details",
-        body: "Add any deeper context, tradeoffs, or results here.",
+        body:
+          "The portfolio is also a record of design decisions, content structure, and how I want different kinds of work to be presented publicly.",
       },
     ],
     links: [
@@ -183,15 +241,19 @@ export const projects: ProjectEntry[] = [
     ],
   },
   {
+    group: "Software & community",
     slug: "biology-club-site",
     title: "Clements Biology Club Website",
     category: "Organization Site",
-    summary: "Add a 2-3 sentence project summary here.",
-    shortSummary: "Add a short one-line card summary here.",
+    summary:
+      "Multi-page club website built to support officers, events, resources, and member-facing logistics in one organized place. The project focuses on clearer structure and easier updates for a larger student organization.",
+    shortSummary:
+      "This organization site brings club logistics, events, officers, and member resources into one place.",
     role: "Lead Developer",
     stack: ["React", "Vite", "CSS"],
     timeframe: "2026",
-    status: "Active",
+    status: "Done",
+    tags: ["bio", "web", "leadership", "community", "club"],
     theme: "biology",
     motifLabel: "Field notes",
     motifHint: "Use this page for content structure, club logistics, and teaching materials.",
@@ -199,25 +261,28 @@ export const projects: ProjectEntry[] = [
       alt: "Biology Club site preview",
       label: "Site preview",
       hint:
-        "Add a screenshot of the homepage, events page, or officers layout.",
+        "Homepage, events, or officers layouts belong here.",
     },
     notes: [
-      "Add one key point here.",
-      "Add one key point here.",
-      "Add one key point here.",
+      "Designed to support 50-100+ students.",
+      "Centralized events, officers, resources, and links.",
+      "Built around maintainable updates instead of one-off page edits.",
     ],
     sections: [
       {
         title: "Overview",
-        body: "Add a short overview here.",
+        body:
+          "The site was built to make club information easier to navigate and easier to maintain over time, especially as officers, resources, and programming shift year to year.",
       },
       {
         title: "Build Notes",
-        body: "Add implementation notes here.",
+        body:
+          "It includes pages for officers, events, resources, and logistics while keeping the overall structure readable for members rather than feeling like an internal document dump.",
       },
       {
         title: "Details",
-        body: "Add any deeper context, tradeoffs, or results here.",
+        body:
+          "More broadly, it became a test case for organization-facing web systems: practical, durable, and easy to hand off.",
       },
     ],
     links: [
@@ -232,15 +297,19 @@ export const projects: ProjectEntry[] = [
     ],
   },
   {
+    group: "Software & community",
     slug: "cs-club-site",
     title: "Clements Computer Science Club Website",
     category: "Organization Site",
-    summary: "Add a 2-3 sentence project summary here.",
-    shortSummary: "Add a short one-line card summary here.",
+    summary:
+      "Computer Science Club site adapted from an existing club-site architecture and rebuilt around a more technical identity. The project focuses on reuse, maintainability, and cleaner organization for club programming and resources.",
+    shortSummary:
+      "This reusable club-site system was adapted for a technical student organization.",
     role: "Developer",
     stack: ["React", "Vite"],
     timeframe: "2026",
-    status: "Ongoing",
+    status: "Done",
+    tags: ["cs", "web", "leadership", "community", "club"],
     theme: "cs",
     motifLabel: "System grid",
     motifHint: "Use this page for architecture notes, reuse decisions, and implementation details.",
@@ -248,25 +317,28 @@ export const projects: ProjectEntry[] = [
       alt: "Computer Science Club site preview",
       label: "Site preview",
       hint:
-        "Add a screenshot of the club homepage, events page, or resources layout.",
+        "Club homepage, events, or resources layouts belong here.",
     },
     notes: [
-      "Add one key point here.",
-      "Add one key point here.",
-      "Add one key point here.",
+      "Adapted shared architecture instead of rebuilding from scratch.",
+      "Changed branding and structure for a more technical audience.",
+      "Focused on scalable maintenance across events, resources, and announcements.",
     ],
     sections: [
       {
         title: "Overview",
-        body: "Add a short overview here.",
+        body:
+          "This site reused an earlier organization-site system but reworked it for a different audience, visual language, and content structure.",
       },
       {
         title: "Build Notes",
-        body: "Add implementation notes here.",
+        body:
+          "A big part of the project was preserving what already worked structurally while rebuilding the content, framing, and visual identity around computer science club needs.",
       },
       {
         title: "Details",
-        body: "Add any deeper context, tradeoffs, or results here.",
+        body:
+          "It also helped test how reusable the broader club-site architecture really was when moved into a new context.",
       },
     ],
     links: [
@@ -281,15 +353,76 @@ export const projects: ProjectEntry[] = [
     ],
   },
   {
+    group: "Software & community",
+    slug: "careforbrains",
+    title: "CareForBrains",
+    category: "Nonprofit / Community",
+    summary:
+      "CareForBrains is a youth-led mental health nonprofit focused on education, advocacy, community, and access. I helped build its public website, chapter systems, outreach, blog, podcast, and broader operations.",
+    shortSummary:
+      "CareForBrains connects student-led chapters with public resources, writing, podcasting, and community outreach.",
+    role: "Co-Founder & COO",
+    stack: ["Nonprofit operations", "Website", "Blog", "Podcast", "Community growth"],
+    timeframe: "May 2024-present",
+    status: "Ongoing",
+    tags: ["personal", "community", "service", "leadership", "media"],
+    theme: "citizen",
+    motifLabel: "Community network",
+    motifHint:
+      "Use this page for chapter growth, public-facing resources, blog and podcast work, and the larger CareForBrains system.",
+    media: {
+      alt: "CareForBrains site preview",
+      label: "Organization preview",
+      hint:
+        "Homepage, chapters, volunteer, podcast, or blog visuals belong here.",
+    },
+    notes: [
+      "The live site currently presents CareForBrains as a youth-led 501(c)(3) nonprofit focused on mental health awareness and support.",
+      "The site currently lists 22 chapters across North America and 852 volunteers.",
+      "Public-facing work spans chapters, volunteer programs, STEM exploration, blog posts, and podcast content.",
+      "Good place to keep track of website work, organizational systems, and future content output.",
+    ],
+    sections: [
+      {
+        title: "Overview",
+        body:
+          "CareForBrains is framed publicly as a youth-led nonprofit building mental health awareness through accessible education, advocacy, community support, and broader resource access. This page can hold both the external-facing site and the work behind making that organization run.",
+      },
+      {
+        title: "Public-Facing Work",
+        body:
+          "The site already includes chapters, volunteer programming, STEM exploration, blog posts, and a podcast page. That makes this a good place to track not only organizational growth but also the content systems that support it.",
+      },
+      {
+        title: "Future Directions",
+        body:
+          "This project can eventually document website improvements, chapter/network growth, editorial output, podcast development, and the broader role of public communication inside nonprofit work.",
+      },
+    ],
+    links: [
+      { label: "Live", href: "https://www.careforbrains.org/" },
+      {
+        label: "Repo",
+        href: "https://github.com/careforbrains-stack/careforbrains-website",
+      },
+      { label: "Podcast", href: "https://www.careforbrains.org/projects-6" },
+      { label: "Blog", href: "https://www.careforbrains.org/blog" },
+    ],
+  },
+  {
+    group: "Personal projects",
     slug: "field-notes-photography-and-inaturalist",
     title: "Field Notes, Photography, and iNaturalist",
     category: "Nature Archive",
-    summary: "Add a 2-3 sentence project summary here.",
-    shortSummary: "Add a short one-line card summary here.",
+    summary:
+      "This ongoing nature archive combines field notes, photography, citizen-science observations, and image-based documentation. It connects my photography with iNaturalist records and the details I notice outdoors.",
+    shortSummary:
+      "This archive connects my photography, field notes, and iNaturalist observations.",
     role: "Photography, documentation, and archive building",
     stack: ["Photography", "iNaturalist", "Gallery system"],
     timeframe: "Ongoing",
-    status: "Planned",
+    status: "Ongoing",
+    tags: ["personal", "nature", "photography", "citizen science", "hobbies"],
     theme: "nature",
     motifLabel: "Field journal",
     motifHint:
@@ -298,26 +431,37 @@ export const projects: ProjectEntry[] = [
       alt: "Nature archive preview",
       label: "Gallery preview",
       hint:
-        "Add one photo, a contact-sheet screenshot, or an observation grid once the archive starts taking shape.",
+        "Field photos, contact sheets, or observation grids belong here.",
     },
     notes: [
-      "Add one key point here.",
-      "Add one key point here.",
-      "Add one key point here.",
+      "Supports public iNaturalist observations through the API.",
+      "Includes separate local galleries for nature images and looser photography.",
+      "Designed as an archive rather than a standard project case study.",
+      "Possible visual directions: taxonomy trees, cladistic branching, or a Pokedex-like species system.",
+      "Could connect more directly to love for citizen science, nature, and photography as one larger narrative.",
+      "Potential future directions include awards, collaborations, and organizations tied to photography or environmental work.",
+      "Also holding field-journal, daily-photo, and broader citizen-science directions for now so the project list stays tighter.",
     ],
     sections: [
       {
         title: "Overview",
-        body: "Add a short overview here.",
-      },
-      {
-        title: "Gallery",
-        body: "Add notes here for photography, organization, or image themes.",
-      },
-      {
-        title: "Observations",
         body:
-          "Add notes here for iNaturalist observations, field notes, or future API/widget plans.",
+          "This page is less about one final product and more about building a long-term archive for images, observations, field notes, and slower forms of attention. It should connect photography, citizen science, and the habit of keeping records of the natural world.",
+      },
+      {
+        title: "System Ideas",
+        body:
+          "Possible directions include a taxonomy or cladistics-based interface, a more visual species browser, or a Pokedex-like archive with classifications, species notes, and statistics showing the kinds of organisms encountered over time such as birds, mammals, fish, or insects.",
+      },
+      {
+        title: "Photography Layer",
+        body:
+          "The photography side should stay open-ended enough to hold organism images, field photos, and more personal material. This could eventually include more intentional photo projects, a stronger visual identity, recognition through awards such as Scholastic, or collaborations with organizations that bridge science and photography.",
+      },
+      {
+        title: "Observation Layer",
+        body:
+          "The iNaturalist side can grow into something more than a feed: species descriptions, observation counts, classification views, maps, and richer archive browsing. It should feel like a place where observations become both images and usable records.",
       },
     ],
     links: [
@@ -329,6 +473,41 @@ export const projects: ProjectEntry[] = [
   },
 ];
 
+export const publicProjects = projects.filter((project) => project.status !== "Planned");
+
 export function getProjectBySlug(slug: string) {
-  return projects.find((project) => project.slug === slug);
+  return publicProjects.find((project) => project.slug === slug);
 }
+
+export const projectStatusOrder: ProjectStatus[] = ["Ongoing", "Planned", "Done"];
+
+export const projectTagOrder = [
+  "personal",
+  "bio",
+  "cs",
+  "academic",
+  "community",
+  "hobbies",
+  "dashboard",
+  "web",
+  "photography",
+  "writing",
+  "nature",
+  "citizen science",
+  "data",
+  "design",
+  "leadership",
+  "research",
+  "simulation",
+  "planning",
+  "reflection",
+  "tracking",
+  "tool",
+  "growth",
+  "media",
+  "service",
+  "cooking",
+  "portfolio",
+  "club",
+  "public health",
+] as const;

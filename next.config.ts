@@ -16,4 +16,6 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+export default function config(phase: string): NextConfig {
+  return { ...nextConfig, distDir: phase === "phase-development-server" ? ".next" : ".next-production" };
+}

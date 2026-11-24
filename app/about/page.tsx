@@ -1,48 +1,5 @@
-import { SectionWrapper } from "@/components/section-wrapper";
-import { TimelineEntry } from "@/components/timeline-entry";
-import { aboutIntro, aboutThemes, aboutTimeline } from "@/data/about";
+import { redirect } from "next/navigation";
 
 export default function AboutPage() {
-  return (
-    <SectionWrapper
-      eyebrow="About"
-      title="About."
-      description="Use this page for a short introduction, a few themes, and a timeline."
-    >
-      <div className="page-split">
-        <article>
-          <p className="eyebrow">Story</p>
-          <h2 className="mt-2 text-2xl text-ink sm:text-[2rem]">
-            Add section heading here.
-          </h2>
-          <p className="page-copy mt-4">{aboutIntro}</p>
-        </article>
-
-        <aside>
-          <p className="eyebrow">Interests</p>
-          <div className="page-list mt-3">
-            {aboutThemes.map((theme) => (
-              <div key={theme.title} className="page-list-item">
-                <h3 className="text-base text-ink">{theme.title}</h3>
-                <p className="page-copy mt-2">{theme.body}</p>
-              </div>
-            ))}
-          </div>
-        </aside>
-      </div>
-
-      <div className="mt-12">
-        <p className="eyebrow">Timeline</p>
-        <div className="mt-4">
-          {aboutTimeline.map((entry, index) => (
-            <TimelineEntry
-              key={entry.title}
-              entry={entry}
-              isLast={index === aboutTimeline.length - 1}
-            />
-          ))}
-        </div>
-      </div>
-    </SectionWrapper>
-  );
+  redirect("/#about-me");
 }

@@ -1,49 +1,25 @@
-import { ProjectCard } from "@/components/project-card";
-import { SectionWrapper } from "@/components/section-wrapper";
-import { projects } from "@/data/projects";
+import { displayYears } from "@/lib/display-years";
+import { ListPicture } from "@/components/list-picture";
+import { publicProjects } from "@/data/projects";
+import { profile } from "@/data/profile";
+
+export const metadata = { title: "Projects & Research" };
+
+const linkLabels: Record<string, string> = { Repo: "Source code", Live: "Live site" };
 
 export default function ProjectsPage() {
-  return (
-    <SectionWrapper
-      eyebrow="Projects"
-      title="Projects."
-      description="Use this page for project entries and links to deeper detail pages."
-    >
-      <div className="page-split">
-        <div className="page-rule-strong">
-          <p className="eyebrow">Index</p>
-          <p className="page-copy mt-3 max-w-2xl">
-            Add a short note here if you want context for the project list.
-          </p>
-        </div>
-
-        <div className="page-rule">
-          <p className="eyebrow">Notes</p>
-          <div className="mt-3 grid gap-3 text-sm leading-6 text-ink/72">
-            <p>Add one short line here.</p>
-            <p>Add one short line here.</p>
-            <p>Add one short line here.</p>
-          </div>
-        </div>
-      </div>
-
-      <div className="mt-10 border-t border-[#dec3ae] pt-5">
-        <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+  return <div className="folio project-register">
+    <h1>Projects &amp; Research</h1>
+      <div className="experience-list work-index">
+        {publicProjects.filter(p => !profile.schoolExperience.some(entry => entry.projectSlug === p.slug)).map(p => <article className="dated-entry" id={p.slug} key={p.slug}>
+          <ListPicture src={p.media.src} alt={p.media.alt} />
           <div>
-            <p className="eyebrow">Project Gallery</p>
-            <p className="page-copy mt-2 max-w-2xl">
-              Add a short gallery note here if needed.
-            </p>
+            <header className="project-line"><h2>{p.title}</h2><small>{displayYears(p.timeframe)}</small></header>
+            {p.links?.length ? <div className="work-links">{p.links.map(link =>
+              <a key={link.href} href={link.href}>{linkLabels[link.label] ?? link.label}</a>
+            )}</div> : null}
           </div>
-          <p className="page-meta">{projects.length} projects</p>
-        </div>
+        </article>)}
       </div>
-
-      <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
-        {projects.map((project) => (
-          <ProjectCard key={project.slug} project={project} />
-        ))}
-      </div>
-    </SectionWrapper>
-  );
+  </div>;
 }
