@@ -1,5 +1,6 @@
-import { displayYears } from "@/lib/display-years";
+import { displayYears, earliestFirst } from "@/lib/display-years";
 import { ListPicture } from "@/components/list-picture";
+import { DescriptionBullets } from "@/components/description-bullets";
 import { profile } from "@/data/profile";
 import { getProjectBySlug } from "@/data/projects";
 
@@ -8,9 +9,12 @@ export const metadata = { title: "Experience" };
 export default function ExperiencePage() {
   return <div className="folio experience-list">
     <h1>Experience</h1>
-    {profile.experience.map(entry => <article className="dated-entry" key={entry.id}>
+    {earliestFirst(profile.experience, e => e.period).map(entry => <article className="dated-entry" key={entry.id}>
       <ListPicture src={entry.image} alt={entry.imageAlt} />
-      <div><small>{displayYears(entry.period)}</small><h2>{entry.role}</h2><small>{entry.organization}</small><p>{entry.description}</p></div>
+      <div>
+        <small>{displayYears(entry.period)}</small><h2>{entry.role}</h2><small>{entry.organization}</small>
+        <DescriptionBullets text={entry.description} />
+      </div>
     </article>)}
     <section id="school" className="folio-section">
       <h2>School involvement</h2>
@@ -41,7 +45,7 @@ export default function ExperiencePage() {
     <section id="honors" className="folio-section">
       <h2>Selected honors</h2>
       <ul className="honors-list">
-        {profile.honors.map(honor => <li key={honor}>{honor}</li>)}
+        {earliestFirst(profile.honors, honor => honor).map(honor => <li key={honor}>{honor}</li>)}
       </ul>
     </section>
   </div>;

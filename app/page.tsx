@@ -1,23 +1,21 @@
-import Image from "next/image";
+import { PortraitLens } from "@/components/portrait-lens";
+import { TypedQuote } from "@/components/typed-quote";
 import { profile } from "@/data/profile";
 
 export default function HomePage() {
   return (
     <div className="folio home-profile">
       <section className="portrait-intro" aria-labelledby="about-me">
-        <div className="portrait-rule">
-          <figure className="portrait-medallion">
-            {profile.headshot ? <Image src={profile.headshot} alt="Ezra Weng" width={480} height={560} priority /> : <div className="portrait-monogram" role="img" aria-label="Placeholder for Ezra's portrait">EW</div>}
-          </figure>
-        </div>
+        <PortraitLens src={profile.headshot} />
         <div>
           <h1>Ezra Weng<span>.</span></h1>
-          <figure className="profile-quote">
-            <blockquote>{profile.quote.text}</blockquote>
-            <figcaption>{profile.quote.credit}</figcaption>
-          </figure>
+          <TypedQuote text={profile.quote.text} credit={profile.quote.credit} />
           <h2 id="about-me">About me</h2>
           <p className="lead">{profile.introduction}</p>
+          <h3 className="interests-heading" id="research-interests">Research interests</h3>
+          <ul className="research-interests" aria-labelledby="research-interests">
+            {profile.researchInterests.map(interest => <li key={interest}>{interest}</li>)}
+          </ul>
         </div>
       </section>
     </div>

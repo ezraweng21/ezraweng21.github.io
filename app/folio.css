@@ -59,6 +59,9 @@ body { font-family:var(--folio-type); background:#faf7f0; color:#342e28 }
 .honors-list li { padding-inline-start:.3rem; line-height:1.55 }
 .honors-list li + li { margin-top:.65rem }
 .honors-list li::marker { color:#903a20 }
+.description-bullets { list-style:disc outside; margin:.55rem 0 0; padding-inline-start:1.2rem; max-width:65ch }
+.description-bullets li + li { margin-top:.3rem }
+.description-bullets li::marker { color:#903a20 }
 .school-activities { margin:.35rem 0 0; padding-inline-start:1.2rem; list-style:disc outside }
 .school-activities li + li { margin-top:.2rem }
 .experience-list article > small { padding-top:.2rem }
@@ -74,9 +77,29 @@ body { font-family:var(--folio-type); background:#faf7f0; color:#342e28 }
 .profile-quote blockquote { margin:0; font:italic 1.1rem/1.5 Georgia,serif; color:#6e4935 }
 .profile-quote figcaption { margin-top:.3rem; font-size:.875rem; color:#65594e }
 .interest-note { margin-top:1rem }
+.interest-journal h3 { font-size:1.15rem; margin:1.25rem 0 .25rem }
+.interest-journal h4 { font-weight:600; margin:.8rem 0 .2rem }
+.interest-journal p { margin:.5rem 0; max-width:65ch }
+.interest-journal ul { list-style:disc outside; padding-inline-start:1.25rem }
+.journal-empty { color:#706458; font-style:italic }
+.note-index { list-style:none; padding:0 }
+.note-index li { display:flex; gap:1rem 2rem; flex-wrap:wrap; align-items:baseline; border-top:1px solid #cfc5b8; padding:1rem 0 }
+.note-index time,.note-body time { color:#705242; font-size:.9rem }
+.note-body { max-width:68ch }
+.note-body header { margin:1.5rem 0 2rem }
+.note-body header h1 { margin-bottom:.5rem }
+.note-body :is(p,ul,ol,blockquote,pre) { margin-block:1em }
+.note-body ul,.note-body ol { padding-left:1.5rem; list-style:revert }
+.note-body img { max-width:100%; height:auto }
+.note-body pre { overflow:auto }
+.journal-pair { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr)); column-gap:2rem }
 .portrait-intro h2,.experience-list > h2 { margin:0 0 1rem; padding-bottom:.55rem; border-bottom:2px solid #92634d }
 .experience-list.folio-section { border-top:0; padding-top:0 }
 .home-profile .portrait-intro .lead { margin:0; max-width:74ch; font-size:1rem; text-wrap:pretty }
+.research-interests { margin:0; padding-inline-start:1.2rem; list-style:disc outside; columns:2 14rem; column-gap:2rem }
+.research-interests li { break-inside:avoid; padding-block:.12rem }
+.research-interests li::marker { color:#903a20 }
+.portrait-intro .interests-heading { font-size:1.05rem; margin:1.5rem 0 .4rem }
 .experience-list .dated-entry { grid-template-columns:clamp(3.5rem,9vw,5rem) 1fr; align-items:start; gap:clamp(1rem,3vw,2rem); padding-block:1.4rem }
 .experience-cutout { margin:0; aspect-ratio:1; display:grid; place-items:center; color:#926748; background:#ebddcb; border-radius:20% 20% 20% 4%; overflow:hidden }
 .experience-cutout svg { width:46% }
@@ -96,6 +119,57 @@ body { font-family:var(--folio-type); background:#faf7f0; color:#342e28 }
 .project-line { display:flex; align-items:baseline; justify-content:space-between; flex-wrap:wrap; gap:.25rem 1rem }
 .project-line h3 { margin:0; font-size:1.2rem; line-height:1.35 }
 .experience-cutout img { width:100%; height:100%; object-fit:cover }
-.experience-list article:nth-of-type(even) .experience-cutout { background:#e2e4d8; color:#666e53 }
+.quote-accessible { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap }
+.quote-word { display:inline-block; max-width:100%; overflow-wrap:anywhere }
+.quote-letter { position:relative }
+@media (prefers-reduced-motion:no-preference) {
+  .quote-letter { animation:quote-strike 1ms step-end var(--start) backwards }
+  .quote-letter::after { content:""; position:absolute; left:100%; bottom:.06em; height:.95em; border-right:1px solid #903a20; opacity:0; animation:quote-caret var(--hold) step-end var(--start) }
+  .profile-quote figcaption { animation:quote-strike .26s ease-out var(--start) backwards }
+  @keyframes quote-strike { from { opacity:0 } to { opacity:1 } }
+  @keyframes quote-caret { from { opacity:1 } to { opacity:0 } }
+}
+
+/* Continue the timeline between portraits, not through the school and honors sections. */
+.experience-list > .dated-entry {
+  --panel-pad:clamp(.65rem,2vw,1.2rem); --entry-offset:-12px;
+  padding-inline:var(--panel-pad);
+}
+.experience-list > .dated-entry:nth-of-type(even) {
+  --entry-offset:12px;
+}
+.folio.experience-list > .dated-entry { position:relative; --tile:clamp(3.5rem,9vw,5rem) }
+.folio.experience-list > .dated-entry:has(+ .dated-entry)::before {
+  content:""; position:absolute; left:calc(var(--panel-pad) + var(--tile) / 2); top:calc(1.4rem + var(--tile));
+  bottom:-1.4rem; width:1px; background:#c3b39e; pointer-events:none;
+}
+.experience-cutout { position:relative }
+.project-register .experience-cutout {
+  border-radius:3px; border:1px solid #bca991;
+  background-image:linear-gradient(#7a5e4210 1px,transparent 1px),linear-gradient(90deg,#7a5e4210 1px,transparent 1px);
+  background-size:10px 10px;
+}
+.project-register .output-group { border-top:1px solid #e0d6c7; padding-block:1rem }
+.project-register .output-group ul { margin-block:0 }
+@media (min-width:640px) {
+  .project-register .output-group { display:grid; grid-template-columns:minmax(9rem,1fr) 2.8fr; gap:1.5rem }
+}
+@media (prefers-reduced-motion:no-preference) {
+  .dated-entry .experience-cutout { transition:box-shadow .25s ease }
+  .project-register .experience-cutout::after {
+    content:""; position:absolute; inset:-30% -80%; pointer-events:none;
+    background:linear-gradient(110deg,transparent 43%,#fffcf07a 50%,transparent 57%); transform:translateX(-80%);
+  }
+  .project-register .dated-entry:focus-within .experience-cutout::after { animation:proof-scan .65s ease-out }
+  @media (hover:hover) {
+    .folio.experience-list > .dated-entry:hover .experience-cutout { box-shadow:0 0 0 3px #faf7f0,0 0 0 4px #a9896c }
+    .project-register .dated-entry:hover .experience-cutout::after { animation:proof-scan .65s ease-out }
+  }
+  @keyframes proof-scan { to { transform:translateX(80%) } }
+  @supports (animation-timeline:view()) {
+    .experience-list > .dated-entry { animation:panel-settle linear both; animation-timeline:view(); animation-range:entry 0% entry 65% }
+    @keyframes panel-settle { from { transform:translateX(var(--entry-offset)) } to { transform:none } }
+  }
+}
 @media(max-width:600px){.home-profile .home-spread{grid-template-columns:1fr}}
 @media(max-width:600px){.home-spread{grid-template-columns:1fr;padding:0}.portrait-print{width:min(84%,20rem);margin:1rem auto}.dated-entry{grid-template-columns:1fr;gap:.15rem}.folio-nav .signature{font-size:1.05rem}.folio-nav nav a{font-size:.8rem}}

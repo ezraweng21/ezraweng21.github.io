@@ -1,0 +1,7 @@
+.practice-clock { display:flex; flex-wrap:wrap; gap:.5rem 1rem; align-items:center; margin-top:1.25rem; padding-top:.85rem; border-top:1px solid #d9cebe }
+.practice-clock h2 { margin:0 }
+.practice-digits { font:500 1.55rem/1.2 var(--folio-type); font-variant-numeric:tabular-nums; color:#783720 }
+.practice-controls { display:flex; flex-wrap:wrap; gap:.45rem }
+.practice-controls :is(button,select) { min-height:2.6rem; padding:.35rem .7rem; border:1px solid #b9ac99; border-radius:.2rem; background:#fffdf8; color:inherit; font:inherit }
+.practice-controls button:first-of-type { background:#863d25; color:white; border-color:#863d25 }
+.practice-clock :is(select,button):focus-visible { outline:2px solid #903a20; outline-offset:2px }

@@ -1,0 +1,78 @@
+.interest-feature { position:relative; margin-block:0 2rem }
+.field-camera { opacity:0 }
+.banner-preview { position:absolute; top:.65rem; right:.65rem; padding:.35rem .65rem; min-height:36px; border:1px solid #796e5e; border-radius:2px; background:#faf5e9; color:#39362e; cursor:pointer; font:600 .8rem/1.4 var(--folio-type) }
+.banner-preview:focus-visible { outline:3px solid #903a20; outline-offset:2px }
+@media(prefers-reduced-motion:reduce){.banner-preview{display:none}}
+.folio .interest-banner { --sheet:#dbe5cd; --ink:#253f34; display:flex; position:relative; isolation:isolate; overflow:hidden; align-items:flex-end; min-height:clamp(11rem,25vw,15rem); padding:1rem; border:2px solid var(--ink); background:radial-gradient(#453b2c22 .8px,transparent 1px) 0 0/5px 5px,var(--sheet); color:var(--ink); text-decoration:none }
+.folio .interest-banner[data-print=routines] { --sheet:#ead9c6; --ink:#513d32 }
+.folio .interest-banner[data-print=plans] { --sheet:#d2dedc; --ink:#344c4c }
+.folio .interest-banner[data-print=watch] { --sheet:#e4dfd5; --ink:#413e39 }
+.folio a.interest-banner[data-print=kitchen] { --sheet:#f0d7ba; --ink:#503325 }
+.interest-banner svg { z-index:-1; position:absolute; right:0; top:0; width:70%; height:100% }
+.folio .interest-banner h2 { max-width:72%; background:var(--sheet); border:2px solid currentColor; padding:.4em .55em; box-shadow:4px 4px currentColor; transform:rotate(-2deg); font:italic 800 clamp(1.5rem,4vw,2.45rem)/1.05 Georgia,serif }
+.banner-arrow { position:absolute; top:.6rem; left:.8rem; font-size:1.5rem }
+.interest-banner:focus-visible { outline:3px solid #903a20; outline-offset:4px }
+@media(max-width:550px){.interest-banner svg{width:100%;right:-7%}.folio .interest-banner{padding:.6rem}}
+@media(prefers-reduced-motion:no-preference){
+  [data-playing=true] .slate-arm { transform-origin:179px 91px; animation:slate-clap .75s ease-in-out both }
+  @keyframes slate-clap { 0%,100% { transform:none } 55% { transform:rotate(-17deg) } 84% { transform:none } 92% { transform:rotate(-2deg) } }
+  [data-playing=true] .practice-hand { transform-origin:262px 129px; animation:watch-sweep 1.6s cubic-bezier(.36,.02,.2,1) both }
+  [data-playing=true] .trail-route { stroke-dasharray:1; animation:trail-trace 1.5s ease-in-out both }
+  @keyframes watch-sweep { to { transform:rotate(360deg) } }
+  @keyframes trail-trace { from { stroke-dashoffset:1 } to { stroke-dashoffset:0 } }
+  [data-playing=true] .focus-light { animation:focus-confirm 2.4s both }
+  [data-playing=true] .lens-iris { animation:shutter-click 2.4s both; transform-origin:249px 108px }
+  [data-playing=true] .burner-fire { animation:burner-rise .38s ease-in-out 4 alternate; transform-box:fill-box; transform-origin:center bottom }
+  @keyframes focus-confirm { 0%,36%{fill:#8b6945} 42%,100%{fill:#b3e383} }
+  @keyframes shutter-click { 0%,41%,53%,100%{transform:scale(1)} 47%{transform:scale(.22)} }
+  @keyframes burner-rise { to{transform:scaleY(1.35) skewX(-4deg)} }
+  .field-camera,.field-world { transform-origin:249px 108px }
+  .field-finder,.field-wing,.pan-steam,.pan-toss path { transform-box:fill-box; transform-origin:center }
+  [data-playing=true] .field-camera { animation:camera-pass 2.4s both }
+  [data-playing=true] .field-world { animation:through-lens 2.4s both }
+  [data-playing=true] .field-finder { animation:frame-lock 2.4s both }
+  [data-playing=true] .field-wing { animation:wing-settle 2.4s both }
+  @keyframes camera-pass {
+    0% {opacity:0;transform:translate(-330px,28px) rotate(-8deg) scale(.7)}
+    10% {opacity:1}
+    37%,47% {opacity:1;transform:none}
+    65%,100% {opacity:0;transform:scale(4.4)}
+  }
+  @keyframes through-lens {
+    0%,42% {transform:none}
+    74% {transform:scale(1.75)}
+    100% {transform:scale(1.64)}
+  }
+  @keyframes frame-lock {
+    0%,46% {opacity:0}
+    60% {opacity:.2;transform:scale(1.8)}
+    82%,100% {opacity:1;transform:scale(1.28)}
+  }
+  @keyframes wing-settle {
+    0%,48%,100% {transform:none}
+    68% {transform:translate(2px,-3px) rotate(5deg) scaleX(.82)}
+  }
+  [data-playing=true] .pan-body { transform-origin:340px 137px; animation:skillet-catch 1.6s both }
+  [data-playing=true] .pan-toss path { animation:ingredient-arc 1.6s both }
+  [data-playing=true] .pan-toss path:nth-child(2) { --lift:-70px; --spin:85deg; animation-delay:45ms }
+  [data-playing=true] .pan-toss path:nth-child(3) { --lift:-42px; --spin:-36deg; animation-delay:85ms }
+  [data-playing=true] .pan-steam { animation:steam-puff 1.6s both }
+  @keyframes skillet-catch {
+    0%,100% {transform:none}
+    22% {transform:translate(9px,3px) rotate(-6deg)}
+    35% {transform:translate(-8px,-4px) rotate(9deg)}
+    76% {transform:translateY(3px) rotate(-3deg)}
+  }
+  @keyframes ingredient-arc {
+    0%,100% {transform:none}
+    22% {transform:translate(7px,7px)}
+    52% {transform:translate(-14px,var(--lift,-54px)) rotate(var(--spin,56deg))}
+    77% {transform:translate(-4px,9px) rotate(-5deg)}
+    87% {transform:translate(0,2px)}
+  }
+  @keyframes steam-puff {
+    0%,100% {opacity:1;transform:none}
+    68% {opacity:.45;transform:translateY(-6px)}
+    86% {opacity:.9;transform:translateY(-15px) scale(1.15)}
+  }
+}

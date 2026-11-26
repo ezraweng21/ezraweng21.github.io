@@ -52,11 +52,26 @@ export type ProjectEntry = {
   links?: ProjectLink[];
 };
 
+function personalProject(slug: string, title: string, category: string, text: string, url?: string): ProjectEntry {
+  return {
+    group: "Personal projects", slug, title, category, summary: text, shortSummary: text,
+    role: category, stack: [], timeframe: "2026", status: "Done", tags: ["personal"],
+    theme: category === "Photography" ? "nature" : "portfolio", motifLabel: title, motifHint: "",
+    media: { alt: "", label: title }, notes: [], sections: [],
+    links: url ? [{ label: "Live", href: url }] : [],
+  };
+}
+
 export const projects: ProjectEntry[] = [
+  personalProject("moss-and-minutes", "Moss & Minutes", "Focus timer", "I built a focus timer where Pip adds to a miniature town as a session unfolds. Visitors can move the camera to explore the town between sessions.", "https://moss-and-minutes.ezwhallway.workers.dev/"),
+  personalProject("making-atlas", "Making Atlas", "Learning site", "I organized lessons in cooking, drawing, photography, and video into guided learning paths. Learners can save their progress and keep a journal of what they make.", "https://making-atlas.ezraweng21.chatgpt.site"),
+  personalProject("latin-vocab-trainer", "Latin Vocab Trainer", "Study tool", "I built a Latin vocabulary trainer for practicing any range of a 1,000-entry word list. Students can choose a preferred translation without having other valid meanings marked wrong.", "https://ezraweng21.github.io/latin-vocab-trainer/"),
+  personalProject("ezwhallway", "EZWHallway", "Messaging app", "I built a web app where friends can sign in and message one another. I added account management and controls for administering the site.", "https://app.ezwhallway.workers.dev/"),
+  personalProject("wild-neighbors", "Wild Neighbors", "Photography", "I selected 48 of my nature photographs and arranged them into five portfolio spreads. I also made an interactive edition where readers can open an individual photograph for a closer look."),
   {
     group: "Research",
     slug: "wbe-bench", title: wbeBenchTitle, category: "Independent research",
-    shortSummary: "This study compares nine model configurations for predicting the following week's wastewater concentrations for five pathogens. Using public WastewaterSCAN records from 191 U.S. sites, the authors evaluated forecasts against the final 183 days of observations. Linear regression models had the lowest mean absolute error for three pathogens; neural models ranked first for the other two.",
+    shortSummary: "As first author, I built a common test for next-week wastewater forecasts using records from 191 U.S. sites. We compared nine model configurations on the same 183 days of held-out data. Linear models had the lowest error for three of five pathogens, a useful check on when a more complex forecast is worth using.",
     summary: "How well can a model forecast next week's wastewater measurements? I brought records from 191 U.S. sites into a common benchmark so that different forecasting approaches could be evaluated on the same task.",
     role: "First author", timeframe: "2026", status: "Done", stack: ["Forecast evaluation", "Longitudinal data analysis"],
     tags: ["research", "public health"], theme: "wastewater", motifLabel: "Forecasts", motifHint: "",
@@ -66,7 +81,7 @@ export const projects: ProjectEntry[] = [
   {
     group: "Research",
     slug: "lupus-nephritis", title: "Spatial Kinome Project", category: "Computational biology",
-    shortSummary: "This Mohan Lab study examines where kinase genes are expressed in kidney tissue in lupus nephritis. An interactive viewer places candidate genes in their tissue context so researchers can compare expression across kidney cell types.",
+    shortSummary: "I built an interactive viewer to help Mohan Lab researchers explore kinase gene expression in kidneys affected by lupus nephritis. Researchers can select a candidate gene and compare its expression across cell types without losing the context of the surrounding tissue.",
     summary: "I mapped candidate kinase genes across kidney cell types in lupus nephritis.",
     role: "Student researcher", timeframe: "2026", status: "Ongoing", stack: ["R", "Spatial transcriptomics"],
     tags: ["research", "biology"], theme: "biology", motifLabel: "Kidney tissue", motifHint: "",
@@ -76,7 +91,7 @@ export const projects: ProjectEntry[] = [
   {
     group: "Research",
     slug: "urinary-biomarkers", title: "Urinary Biomarkers Project", category: "Computational biology",
-    shortSummary: "This Mohan Lab study investigates which kidney cells may contribute to biomarker signals detected in urine in lupus nephritis. It compares the genes associated with those biomarkers across single-cell and spatial kidney datasets to identify plausible cellular sources.",
+    shortSummary: "I analyzed single-cell and spatial kidney datasets to investigate which cells might contribute to biomarker signals measured in urine. My contribution was to compare expression patterns and prepare figures the team could use to assess possible sources, rather than assume a urinary measurement points to one cell type.",
     summary: "I used kidney gene-expression data to investigate the cellular origins of urinary biomarkers.",
     role: "Student researcher", timeframe: "2026", status: "Ongoing", stack: ["R", "Single-cell analysis", "Spatial transcriptomics"],
     tags: ["research", "biology"], theme: "biology", motifLabel: "Urinary biomarkers", motifHint: "",
@@ -85,7 +100,7 @@ export const projects: ProjectEntry[] = [
   {
     group: "Research",
     slug: "genelab-spaceflight", title: "Plant Stress Responses During Suborbital Spaceflight", category: "NASA GeneLab for High Schools",
-    shortSummary: "This NASA GeneLab for High Schools capstone examines gene expression in Arabidopsis plants exposed to suborbital spaceflight. The four-member team analyzed NASA dataset OSDR-624 and used the observed patterns to propose a follow-up experiment on heat stress.",
+    shortSummary: "Working in a four-person NASA GeneLab team, I analyzed gene-expression data from Arabidopsis plants exposed to suborbital spaceflight. We used those observations to design a follow-up experiment on heat stress.",
     outcome: "GeneLab selected the team as one of three capstone finalists.",
     summary: "Using NASA's OSDR-624 dataset, our team examined how Arabidopsis responded to suborbital spaceflight. We used the data to develop a hypothesis about heat stress and propose a follow-up experiment.",
     role: "Student researcher on a four-person team", timeframe: "2026", status: "Ongoing", stack: ["RNA-seq analysis", "Experimental design"],
@@ -100,7 +115,7 @@ export const projects: ProjectEntry[] = [
     category: "Computational Biology",
     summary:
       "Wastewater-based norovirus genomic surveillance project using multi-year data from 16 sites across Texas. The work tracks genotype dynamics, temporal patterns, and site-level variation to study viral transmission outside clinical testing.",
-    shortSummary: "This R Shiny dashboard tracks changes in norovirus genotypes across Texas wastewater monitoring sites. Researchers can follow a genotype's relative abundance over time at one site or compare its trajectory across sites, revealing differences that a statewide trend can obscure.",
+    shortSummary: "I built an R Shiny dashboard that lets researchers follow norovirus genotypes at individual Texas monitoring sites. A user can compare the same genotype across sites or examine how its share changes over time, two views that a single statewide curve cannot provide.",
     role: "Developer + Data Analyst",
     stack: ["R", "R Markdown", "Shiny", "ggplot2", "dplyr"],
     timeframe: "2025-present",
@@ -146,7 +161,7 @@ export const projects: ProjectEntry[] = [
     category: "Civic Data",
     summary:
       "Datathon project built from raw public datasets through cleaning, transformation, and visualization. The dashboard models operational strain across city systems and turns public safety and service data into a more interpretable decision-support view.",
-    shortSummary: "At the City of Sugar Land Datathon, my teammates and I used public safety and municipal service records to examine demand on city services. We cleaned the datasets, built an index of operational strain, and made it explorable in an R Shiny dashboard.",
+    shortSummary: "At the Sugar Land Datathon, I helped turn public safety and municipal service records into an interactive dashboard. Our team cleaned the city datasets, constructed an index of operational strain, and used R Shiny to show where demand differed across services.",
     outcome: "Our team placed first out of 12.",
     role: "Developer",
     stack: ["Data pipelines", "Visualization", "Dashboard development"],
@@ -204,7 +219,7 @@ export const projects: ProjectEntry[] = [
     category: "Personal Site",
     summary:
       "Custom portfolio site built to hold projects, activities, and personal work without collapsing into a single landing page. The site uses reusable data structures, dynamic project pages, and a more editorial multi-page layout that can keep evolving over time.",
-    shortSummary: "I built this site in Next.js and TypeScript to keep my research, software, and photography in one place. I separated the project records from the page layout so I can add a paper or demo without having to redesign the list.",
+    shortSummary: "I designed and built this portfolio in Next.js and TypeScript. Separating content from layout lets me publish a Markdown note, add a research citation, or update a gallery without creating a new page by hand.",
     role: "Frontend architecture + design",
     stack: ["Next.js", "TypeScript", "Tailwind CSS"],
     timeframe: "2026",
@@ -365,7 +380,7 @@ export const projects: ProjectEntry[] = [
     category: "Nonprofit / Community",
     summary:
       "CareForBrains is a youth-led mental health nonprofit focused on education, advocacy, community, and access. I helped build its public website, chapter systems, outreach, blog, podcast, and broader operations.",
-    shortSummary: "We use the CareForBrains website to connect students with local chapters and volunteer opportunities. We also publish our blog and podcast there, so someone who can't attend a chapter event can still take part in the conversation about mental health.",
+    shortSummary: "At CareForBrains, I help organize digital resources for students looking for a chapter, a volunteer opportunity, or a way to learn about mental health. Our team uses the website to bring those resources together with the nonprofit's podcast and blog.",
     role: "Co-Founder & COO",
     stack: ["Nonprofit operations", "Website", "Blog", "Podcast", "Community growth"],
     timeframe: "May 2024-present",
@@ -421,7 +436,7 @@ export const projects: ProjectEntry[] = [
     category: "Nature Archive",
     summary:
       "This ongoing nature archive combines field notes, photography, citizen-science observations, and image-based documentation. It connects my photography with iNaturalist records and the details I notice outdoors.",
-    shortSummary: "I keep my photographs and my iNaturalist observations together here because they record different parts of a field outing. The galleries are a place to look at the images themselves; the observation records document what I saw and how it was identified.",
+    shortSummary: "I built a photography archive that keeps two ways of exploring nature distinct. Visitors can browse albums for the images themselves, or open the iNaturalist collection to explore observations by animal or plant group.",
     role: "Photography, documentation, and archive building",
     stack: ["Photography", "iNaturalist", "Gallery system"],
     timeframe: "Ongoing",

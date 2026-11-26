@@ -1,5 +1,6 @@
-import { displayYears } from "@/lib/display-years";
+import { displayYears, earliestFirst } from "@/lib/display-years";
 import { ListPicture } from "@/components/list-picture";
+import { DescriptionBullets } from "@/components/description-bullets";
 import { publicProjects } from "@/data/projects";
 import { profile } from "@/data/profile";
 import { researchOutputs } from "@/data/research-outputs";
@@ -20,18 +21,18 @@ export default function ProjectsPage() {
       <h2 id="outputs-title">Research outputs</h2>
       {researchOutputs.map(group => <div className="output-group" key={group.heading}>
         <h3>{group.heading}</h3>
-        <ul>{group.entries.map(entry => <li key={entry.work}><strong>{entry.work}:</strong> {entry.detail}</li>)}</ul>
+        <ul>{earliestFirst(group.entries, e => e.period ?? "").map(entry => <li key={entry.work}><strong>{entry.work}:</strong> {entry.detail}</li>)}</ul>
       </div>)}
     </section>
     {sections.filter(section => section.entries.length).map(({ id, heading, entries }) => (
       <section key={id} id={id} aria-labelledby={id + "-heading"} className="project-section">
       <h2 id={id + "-heading"}>{heading}</h2>
       <div className="experience-list work-index">
-        {entries.map(p => <article className="dated-entry" id={p.slug} key={p.slug}>
+        {earliestFirst(entries, p => p.timeframe).map(p => <article className="dated-entry" id={p.slug} key={p.slug}>
           <ListPicture src={p.media.src} alt={p.media.alt} />
           <div>
             <header className="project-line"><h3>{p.title}</h3><small>{displayYears(p.timeframe)}</small></header>
-            <p>{p.shortSummary}{p.outcome && ` ${p.outcome}`}</p>
+            <DescriptionBullets text={p.shortSummary} outcome={p.outcome} />
             {p.links?.length ? <div className="work-links">{p.links.map(link =>
               <a key={link.href} href={link.href}>{linkLabels[link.label] ?? link.label}</a>
             )}</div> : null}

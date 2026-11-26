@@ -7,6 +7,7 @@ const sections = [
   ["Experience", "/experience"],
   ["Projects & Research", "/projects"],
   ["Interests", "/personal"],
+  ["Notes", "/notes"],
   ["Contact", "/contact"],
 ] as const;
 
@@ -17,7 +18,7 @@ export function SiteNavbar() {
       <Link className="signature" href="/" aria-label="Ezra Weng, home">Ezra Weng</Link>
       <nav aria-label="Main navigation">
         {sections.map(([label, href]) => (
-          <Link key={href} href={href} aria-current={path === href ? "page" : path.startsWith(href + "/") || (href === "/personal" && path.startsWith("/photography")) ? "location" : undefined}>
+          <Link key={href} href={href} aria-current={path === href ? "page" : path.startsWith(href + "/") || (href === "/personal" && (path.startsWith("/photography") || path === "/cooking")) ? "location" : undefined}>
             {label}
           </Link>
         ))}

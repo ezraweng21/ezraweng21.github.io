@@ -1,15 +1,25 @@
 export const profile = {
   headshot: "",
+  researchInterests: [
+    "Infectious disease",
+    "Public health",
+    "Epidemiology",
+    "Virology",
+    "Antimicrobial resistance",
+    "Pathogen resistance",
+    "Evolution",
+    "Vaccine development",
+  ],
   candid: "",
   quote: { text: "[A quote that has stayed with you.]", credit: "[Author or source]" },
   introduction: "I'm a student at Clements High School in the Class of 2027. I use code to study questions in biology and public health, from what wastewater can tell us about a community to how gene expression varies across kidney cells. Outside of research, I photograph nature and identify what I find on iNaturalist.",
   experience: [
-    {"id":"BCM / TEPHI","image":"","imageAlt":"","organization":"BCM / TEPHI","role":"Wastewater surveillance intern","period":"July–September 2025","description":"At Baylor College of Medicine, I worked with the Texas Epidemic Public Health Institute to follow viral activity across 16 Texas cities. I used R to turn three years of wastewater measurements into figures and reports that let our team compare what was happening in one city with trends elsewhere in the state."},
-    {"id":"Baylor College of Medicine","image":"","imageAlt":"","organization":"Baylor College of Medicine","role":"Wastewater monitoring collaborator","period":"2026","description":"After my norovirus internship, I joined a Baylor team studying bacteria and antimicrobial resistance in wastewater. My part has been building reporting tools in R Shiny. One prototype brings together measurements from 447 samples so the team can compare results across four cities."},
-    {"id":"University of Houston · Mohan Lab","image":"","imageAlt":"","organization":"University of Houston · Mohan Lab","role":"Summer research intern","period":"Summer 2026","description":"I spent the summer studying lupus nephritis with researchers at the Mohan Lab. My work focused on how gene expression varies across cell types in the kidney. At the end of the internship, I presented my analysis to the lab and received its Most Valuable Player award."},
-    {"id":"CareForBrains","image":"","imageAlt":"","organization":"CareForBrains","role":"Co-founder and chief operating officer","period":"Since May 2024","description":"I co-founded CareForBrains to make mental-health and neuroscience education more accessible to students. As COO, I work with leaders across our 22 chapters on outreach and programming. That includes training new chapter leaders and helping organize projects such as our wellness e-card campaign."},
-    {"id":"TEPHI LitRep","image":"","imageAlt":"","organization":"TEPHI LitRep","role":"Newsletter contributor","period":"Since April 2026","description":"Each week, I read infectious-disease research and write brief summaries for TEPHI's LitRep newsletter. I cover topics such as wastewater surveillance for an audience of roughly 650 clinicians, researchers, and public-health professionals. The challenge is to explain what a study found without implying more than the evidence supports."},
-    {"id":"Operation Outbreak","image":"","imageAlt":"","organization":"Operation Outbreak","role":"Student ambassador","period":"Since July 2026","description":"Through the Biology Club and other student groups at Clements, I introduce classmates to how epidemiologists study outbreaks. I've worked with more than 30 students on outbreak science and am helping plan a schoolwide simulation so students can explore those ideas together."},
+    {"id":"BCM / TEPHI","image":"","imageAlt":"","organization":"BCM / TEPHI","role":"Wastewater surveillance intern","period":"July–September 2025","description":"At Baylor College of Medicine, I supported a team monitoring wastewater across 16 Texas cities. I analyzed three years of measurements in R and prepared figures and reports that let researchers compare local changes in viral activity against trends elsewhere in the network."},
+    {"id":"Baylor College of Medicine","image":"","imageAlt":"","organization":"Baylor College of Medicine","role":"Wastewater monitoring collaborator","period":"2026","description":"Baylor invited me to continue working with its surveillance team after my norovirus internship. I developed R Shiny reporting prototypes for bacterial and antimicrobial-resistance monitoring, including a dashboard that brings together 447 wastewater samples from four cities."},
+    {"id":"University of Houston · Mohan Lab","image":"","imageAlt":"","organization":"University of Houston · Mohan Lab","role":"Summer research intern","period":"Summer 2026","description":"At the Mohan Lab, I used kidney gene-expression data to study lupus nephritis and presented my spatial analysis at the program's final research meeting. I received the summer internship MVP award, which recognized both my research contributions and how I worked with the team."},
+    {"id":"CareForBrains","image":"","imageAlt":"","organization":"CareForBrains","role":"Co-founder and chief operating officer","period":"Since May 2024","description":"I co-founded CareForBrains and oversee outreach and programming across our network of 22 chapters. I train chapter leaders and help coordinate initiatives such as our wellness e-card campaign, connecting local volunteer work to the nonprofit's broader mental-health education efforts."},
+    {"id":"TEPHI LitRep","image":"","imageAlt":"","organization":"TEPHI LitRep","role":"Newsletter contributor","period":"Since April 2026","description":"I turn infectious-disease research into weekly briefs for roughly 650 clinicians, researchers, and public-health professionals. For each piece, I identify the finding most relevant to readers and explain what the evidence does and does not establish."},
+    {"id":"Operation Outbreak","image":"","imageAlt":"","organization":"Operation Outbreak","role":"Student ambassador","period":"Since July 2026","description":"I bring outbreak science to Clements through the Biology Club and other student groups. I've introduced more than 30 peers to epidemiology and preparedness and am helping plan a schoolwide simulation where students can apply those concepts."},
   ],
   schoolExperience: [
     {"projectSlug":"biology-club-site","id":"Clements Biology Club","image":"","imageAlt":"","organization":"Clements Biology Club","role":"Co-president","period":"Since 2023 · multiple roles","description":"I moved from teaching and event coordination into club leadership. My work has included the Texas Biology Tournament, the weekly Bio Bites series, and hands-on kits for local middle schools."},
@@ -28,7 +38,6 @@ export const profile = {
   ],
   hobbies: [
     { title: "Field identification", description: "I photograph butterflies, flowers, and other wildlife and record my observations on iNaturalist." },
-    { title: "Competitive programming", description: "I enjoy solving algorithm problems and working through them with other programmers." },
   ],
   tangent: { title: "", note: "" },
 };
