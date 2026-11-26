@@ -17,5 +17,9 @@ const nextConfig: NextConfig = {
 };
 
 export default function config(phase: string): NextConfig {
-  return { ...nextConfig, distDir: phase === "phase-development-server" ? ".next" : ".next-production" };
+  // Keep local production builds from overwriting a running dev server.
+  if (process.env.VERCEL !== "1" && phase !== "phase-development-server") {
+    return { ...nextConfig, distDir: ".next-production" };
+  }
+  return nextConfig;
 }
