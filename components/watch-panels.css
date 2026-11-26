@@ -1,0 +1,56 @@
+.manga-shelf { margin-block:1.2rem }
+.reel-stack {
+  position:relative; isolation:isolate; width:100cqw;
+  margin-inline:calc((100% - 100cqw) / 2); --seam:clamp(8px,1.6vw,26px);
+}
+.reel-stack::before {
+  content:""; position:absolute; z-index:-1; pointer-events:none; inset-block:0;
+  inset-inline:0;
+  background:linear-gradient(172deg,transparent 4%,#4260760c 34%,#87745e0d 59%,#bf67210e 78%,transparent 97%);
+}
+.reel-stack [data-reel] { min-width:0; scroll-margin-top:4.5rem }
+.reel-stack [data-reel] + [data-reel] { padding-block-start:calc(var(--seam) * 2); position:relative }
+.reel-stack [data-reel] + [data-reel]::before {
+  content:""; position:absolute; inset-block-start:var(--seam); left:50%;
+  width:clamp(5rem,18vw,13rem); height:1px; transform:translateX(-50%);
+  background:linear-gradient(90deg,transparent,#897465 40% 60%,transparent);
+}
+.manga-movie[role="button"] { cursor:pointer }
+.manga-movie:focus-visible { outline:2px solid #a94823; outline-offset:-2px }
+.site-frame:has(.manga-panorama) { container-type:inline-size }
+.manga-panorama {
+  width:100%; margin:0; mix-blend-mode:multiply;
+}
+.manga-movie {
+  display:block; width:100%; height:auto; aspect-ratio:5/2; object-fit:cover;
+  mask-image:linear-gradient(to bottom,transparent,#000 var(--seam),#000 97%,transparent);
+}
+@media(max-width:42rem) {
+  .manga-movie { height:48vw; object-fit:cover }
+}
+[data-reel="blue-lock"] .manga-movie {
+  height:auto; aspect-ratio:27/16; object-fit:contain; mask-image:none;
+}
+@media(max-width:42rem) {
+  [data-reel="blue-lock"] .manga-movie { height:min(78svh,105cqw); object-fit:cover }
+}
+[data-reel="blue-lock"]:fullscreen {
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  color:#342e28; background:#faf7f0; width:100%; height:100%;
+}
+[data-reel="blue-lock"]:fullscreen .manga-panorama {
+  width:100%; margin:0; min-height:0; flex:1; display:grid; place-items:center; position:relative; overflow:hidden;
+}
+.reel-surround {
+  position:absolute; inset:-3%; width:106%; height:106%; object-fit:cover; filter:blur(12px); opacity:.45; pointer-events:none;
+}
+[data-reel="blue-lock"]:fullscreen .manga-movie {
+  position:relative; width:100%; height:100%; min-height:0; object-fit:contain; mix-blend-mode:multiply;
+}
+@media(max-aspect-ratio:1/1) {
+  [data-reel="blue-lock"]:fullscreen .manga-movie { height:min(100%,108vw); object-fit:cover }
+}
+.manga-shelf :is(button,a):focus-visible { outline:3px solid #a94823; outline-offset:2px; z-index:1 }
+.manga-shelf h2 { margin:1.65rem 0 .4rem }
+.watch-queue > div { display:flex; flex-wrap:wrap; gap:.3rem 1rem }
+.watch-queue dt { min-width:3.5rem; color:#715342 }.watch-queue dd { margin:0 }
